@@ -6,7 +6,7 @@ Given(/^these products:$/) do |table|
 end
   
 When(/^I visit the product page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit products_path
 end
 
 Then(/^I see "(.*?)"$/) do |arg1|
