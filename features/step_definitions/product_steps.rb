@@ -17,16 +17,18 @@ Then(/^I see a picture of a macaroon$/) do
   page.should have_selector("img")
 end
 
-Given(/^I have a Specialty category$/) do
-  pending # express the regexp above with the code you wish you had
+Given(/^I have a "(.*?)" category$/) do |name|
+  @product_category = ProductCategory.create! name: name
 end
 
-Given(/^a Macaroon in that category$/) do
-  pending # express the regexp above with the code you wish you had
+Given(/^a "(.*?)" in that category$/) do |product_name|
+  product = Product.create! name: product_name, description: "a delicious macaroon", picture: "features/images/macaroon.jpg"
+  product.update_attribute(:product_category_id, @product_category)
 end
 
-Then(/^I see "(.*?)" in the "(.*?)" category$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Then(/^I see "(.*?)" in the "(.*?)" category$/) do |product_name, product_category_name|
+  page.should have_selector("##{product_category_name.downcase}")
+  expect(page.find("##{product_category_name.downcase}")).to have_content(product_name)
 end
 
 Given(/^a gluten free diet$/) do

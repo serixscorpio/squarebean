@@ -12,8 +12,8 @@ Feature: Products
     And I see a picture of a macaroon
 
   Scenario: A product falls into one of two categories
-    Given I have a Specialty category
-    And a Macaroon in that category
+    Given I have a "Specialty" category
+    And a "Macaroon" in that category
     When I visit the product page
     Then I see "Macaroon" in the "Specialty" category
 

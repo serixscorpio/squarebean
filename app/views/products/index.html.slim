@@ -1,4 +1,5 @@
-- @products.each do |product|
-  p = product.name
-  p = product.description
-  img src="#{product.picture}"
+div id="specialty"
+  - @products.each do |product|
+    p = product.name
+    p = product.description
+    img src="#{product.picture}"
