@@ -1,7 +1,7 @@
 Given(/^these products:$/) do |table|
   # table is a Cucumber::Ast::Table
   table.hashes.each do |row|
-    Product.create! name: row['name'], description: row['description']
+    Product.create! name: row['name'], description: row['description'], picture: File.open("features/images/#{row['picture']}")
   end
 end
   
@@ -9,12 +9,12 @@ When(/^I visit the product page$/) do
   visit products_path
 end
 
-Then(/^I see "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I see "(.*?)"$/) do |text|
+  expect(page).to have_content(text)
 end
 
 Then(/^I see a picture of a macaroon$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_selector("img")
 end
 
 Given(/^I have a Specialty category$/) do

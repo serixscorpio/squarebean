@@ -4,8 +4,8 @@ Feature: Products
   Scenario: Each product has name, picture, description, price and diet type
     Given these products:
       |name   |picture    |description      |diet type|
-      |Macaroon|x         |A delicious macaroon|none  |
-      |Muffin   |x      |A delicious muffin|none|
+      |Macaroon|macaroon.jpg|A delicious macaroon|none  |
+      |Muffin   |muffin.jpg   |A delicious muffin|none|
     When I visit the product page
     Then I see "Macaroon"
     And I see "A delicious macaroon"
