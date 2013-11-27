@@ -31,23 +31,16 @@ Then(/^I see "(.*?)" in the "(.*?)" category$/) do |product_name, product_catego
   expect(page.find("##{product_category_name.downcase}")).to have_content(product_name)
 end
 
-Given(/^a gluten free diet$/) do
-  pending # express the regexp above with the code you wish you had
+Given(/^a (.+) "(.*?)"$/) do |diet_types, product_name|
+  @product = Product.create! name: product_name
+  diet_types.split(', ').each do |diet_type|
+    @product.update_attribute(diet_type.gsub(" ", "_").prepend("is_").to_sym, true)
+  end
 end
 
-Given(/^a Cookie that is gluten free$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^I visit the home page$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^choose to show only gluten free products$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I see "(.*?)" which is "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Then(/^I see "(.*?)" is indicated as (.+)$/) do |product_name, diet_types|
+  diet_types.split(', ').each do |diet_type|
+    expect(page.find("##{product_name}")).to have_content(diet_type)
+  end
 end
 
