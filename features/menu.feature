@@ -1,5 +1,6 @@
-Feature: Products
+Feature: Menu
   As a bakery, we produce and sell bakery products.
+  This page shows the available bakery products.
 
   Scenario: Each product has name, picture, description, price
     Given these products:
