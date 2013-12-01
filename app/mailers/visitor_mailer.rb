@@ -1,5 +1,5 @@
 class VisitorMailer < ActionMailer::Base
-  default from: "contact@squarebean.com", to: "contact@squarebean.com"
+  default from: "serixscorpio@gmail.com", to: "serixscorpio@gmail.com"
 
   def inquire(inquiry)
     @inquiry = inquiry
