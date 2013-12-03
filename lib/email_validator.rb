@@ -1,4 +1,4 @@
-#require 'net/http'
+require 'net/http'
 
 class EmailValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
