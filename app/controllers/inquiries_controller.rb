@@ -1,10 +1,15 @@
 class InquiriesController < ApplicationController
   def create
     inquiry = params[:inquiry]
-    if VisitorMailer.inquire(inquiry).deliver && VisitorMailer.confirm_inquiry(inquiry).deliver
-      flash[:notice] = "Thank you for contacting us.  We'll get back to you shortly"
+    @inquiry = Inquiry.new(params[:inquiry])
+    if @inquiry.save
+      if VisitorMailer.inquire(inquiry).deliver && VisitorMailer.confirm_inquiry(inquiry).deliver
+        flash[:notice] = "Thank you for contacting us.  We'll get back to you shortly"
+      else
+        flash[:notice] = "Couldn't send your message, please double check your email address and try again"
+      end
     else
-      flash[:notice] = "Couldn't send your message, please double check your email address and try again"
+      flash[:error] = "Email address is invalid"
     end
     redirect_to root_path
   end
