@@ -17,7 +17,7 @@ Feature: Main
       | Wedding & Catering Events |
 
   Scenario: I can contact Square Bean
-    Given My email address is "serixscorpio@gmail.com"
+    Given I have valid email address "serixscorpio@gmail.com"
     And My name is "Eric Chiang"
     And I have inquiry "Do you make taro cakes?"
     When I am at the Main page
@@ -27,7 +27,7 @@ Feature: Main
     And a confirmation email is sent from Square Bean to my email address
 
   Scenario: I cannot contact Square Bean using an invalid email address
-    Given My email address is "eric.chiang@com"
+    Given I have invalid email address "eric.chiang@com"
     And My name is "Eric Chiang"
     And I have inquiry "Do you make taro cakes?"
     When I am at the Main page

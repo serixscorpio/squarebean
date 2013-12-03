@@ -16,8 +16,11 @@ Then(/^I see the "(.*?)" page$/) do |page_name|
   expect(page).to have_title page_name
 end
 
-Given(/^My email address is "(.*?)"$/) do |email_address|
+Given(/^I have (valid|invalid) email address "(.*?)"$/) do |email_validity, email_address|
   @email_address = email_address
+  stub_request(:get, "https://api:pubkey-9pwfrgjno64r2ztjmgq740bx40e1sdf8@api.mailgun.net/v2/address/validate")
+    .with(query: {"address" => @email_address})
+    .to_return(File.new("features/http_responses/mailgun_api_#{email_validity}_email_response"))
 end
 
 Given(/^My name is "(.*?)"$/) do |visitor_name|
