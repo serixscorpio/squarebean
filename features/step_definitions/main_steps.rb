@@ -18,7 +18,11 @@ end
 
 Given(/^I have (valid|invalid) email address "(.*?)"$/) do |email_validity, email_address|
   @email_address = email_address
-  stub_request(:get, "https://api:pubkey-9pwfrgjno64r2ztjmgq740bx40e1sdf8@api.mailgun.net/v2/address/validate")
+  stub_request(:get,
+               Figaro.env.mailgun_email_validation_api_protocol +
+               Figaro.env.mailgun_email_validation_id + ":" +
+               Figaro.env.mailgun_email_validation_key + "@" + 
+               Figaro.env.mailgun_email_validation_api_path)
     .with(query: {"address" => @email_address})
     .to_return(File.new("features/http_responses/mailgun_api_#{email_validity}_email_response"))
 end
