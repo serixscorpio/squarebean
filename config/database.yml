@@ -3,15 +3,18 @@ default: &default
   encoding: unicode
   template: template0
   pool: 5
-  username: squarebean
 
 development:
   <<: *default
-  database: squarebean_development
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 test: &test
   <<: *default
-  database: squarebean_test
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 cucumber:
   <<: *test
