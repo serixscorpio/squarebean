@@ -11,6 +11,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'webmock'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Gems used only for assets and not required
@@ -29,6 +30,7 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'rspec-rails'
 gem 'figaro'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

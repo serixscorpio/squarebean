@@ -12,6 +12,10 @@
     <%= flash[:notice] %>
   <% end %>
 
+  <% if flash[:alert] %>
+    <%= flash[:alert] %>
+  <% end %>
+
   <% if flash[:error] %>
     <%= flash[:error] %>
   <% end %>
