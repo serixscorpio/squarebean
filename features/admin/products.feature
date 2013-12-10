@@ -6,5 +6,5 @@ Feature: Admin Products
     Given I am logged in as an admin
     When I visit the admin Menu page
     Then I can add:
-      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |
+      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file       |
+      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg       |

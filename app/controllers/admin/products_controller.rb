@@ -7,6 +7,16 @@ class Admin::ProductsController < ApplicationController
     @product_categories = ProductCategory.all
   end
 
+  def create
+    @product = Product.new(params[:product])
+    if @product.save
+      redirect_to admin_product_path(@product.id), notice: "Added product '#{@product.name}'"
+    else
+      flash[:error] = "Error creating product.  Please try again."
+      render :new
+    end
+  end
+
   def edit
   end
 

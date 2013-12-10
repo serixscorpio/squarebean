@@ -1,6 +1,6 @@
 Given(/^There are "(.*?)" and "(.*?)" product categories$/) do |product_category1, product_category2|
-  ProductCategory.create!(name: product_category1)
-  ProductCategory.create!(name: product_category2)
+  FactoryGirl.create(:cake_category)
+  FactoryGirl.create(:special_item_category)
 end
 
 Given(/^I am logged in as an admin$/) do
@@ -25,7 +25,9 @@ Then(/^I can add:$/) do |table|
   check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
   check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
   check('product[is_vegan]') if row['is vegan'] == 'Yes'
-  # Next to work on uploading picture of the product
+  attach_file('product[picture]', File.join(Rails.root, 'features', 'images', row['picture file']))
+  click_button('Create Product')
+  # TODO: verify in db a new product is added
     # table is a Cucumber::Ast::Table
-    pending # express the regexp above with the code you wish you had
+    pending
 end
