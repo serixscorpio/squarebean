@@ -27,7 +27,10 @@ Then(/^I can add:$/) do |table|
   check('product[is_vegan]') if row['is vegan'] == 'Yes'
   attach_file('product[picture]', File.join(Rails.root, 'features', 'images', row['picture file']))
   click_button('Create Product')
-  # TODO: verify in db a new product is added
-    # table is a Cucumber::Ast::Table
-    pending
+  fail("Product #{row['name']} is not added") unless Product.where(name: row['name']).exists? 
+  expect(page).to have_content(row['name'])
+  expect(page).to have_content(row['description'])
+  # TODO:
+  #expect(page).to have_content(row['category'])
+  pending
 end
