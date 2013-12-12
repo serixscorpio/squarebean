@@ -30,7 +30,9 @@ Then(/^I can add:$/) do |table|
   fail("Product #{row['name']} is not added") unless Product.where(name: row['name']).exists? 
   expect(page).to have_content(row['name'])
   expect(page).to have_content(row['description'])
-  # TODO:
-  #expect(page).to have_content(row['category'])
-  pending
+  expect(page).to have_content(row['category'])
+  expect(page).to have_content('gluten free') if row['is gluten free'] == 'Yes'
+  expect(page).to have_content('dairy free') if row['is dairy free'] == 'Yes'
+  expect(page).to have_content('vegan') if row['is vegan'] == 'Yes'
+  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file']}\")]")
 end
