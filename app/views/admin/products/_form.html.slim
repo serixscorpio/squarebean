@@ -1,0 +1,9 @@
+= form_for [:admin, product] do |f|
+  = f.text_field :name
+  = f.text_area :description
+  = f.collection_select :product_category_id, product_categories, :id, :name
+  = f.check_box :is_gluten_free
+  = f.check_box :is_dairy_free
+  = f.check_box :is_vegan
+  = f.file_field :picture
+  = f.submit "Save"

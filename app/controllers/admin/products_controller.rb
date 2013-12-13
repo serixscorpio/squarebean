@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   def index
+    @products = Product.all
   end
 
   def new
@@ -18,6 +19,18 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @product_categories = ProductCategory.all
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(params[:product])
+      redirect_to admin_product_path(@product.id), notice: "Updated product '#{@product.name}'"
+    else
+      flash[:error] = "Error updating product.  Please try again."
+      render :new
+    end
   end
 
   def show
