@@ -37,4 +37,14 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product_category = @product.product_category
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+      flash[:notice] = "Deleted product '#{@product.name}'"
+    else
+      flash[:error] = "Error deleting product. Please try again."
+    end
+    redirect_to admin_products_path
+  end
 end

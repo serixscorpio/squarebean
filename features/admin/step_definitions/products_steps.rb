@@ -38,7 +38,7 @@ Then(/^I can add:$/) do |table|
 end
 
 When(/^I select to edit the "(.*?)"$/) do |product_name|
-  click_link("Edit #{product_name}")
+  click_link("edit-#{product_name}")
 end
 
 When(/^change the name to "(.*?)"$/) do |new_name|
@@ -56,5 +56,19 @@ end
 
 Then(/^its picture is updated to "(.*?)"$/) do |new_picture|
   expect(@product.picture.url).to include(new_picture)
+end
+
+When(/^I select to delete the "(.*?)"$/) do |product_name|
+  click_link("delete-#{product_name}")
+end
+
+Then(/^The list of products should not have "(.*?)"$/) do |product_name|
+  fail("Product #{product_name} should not be found") if Product.where(name: product_name).exists? 
+  expect(page).to have_no_selector('td', text: product_name)
+end
+
+Then(/^The list of products should still have "(.*?)"$/) do |product_name|
+  fail("Product #{product_name} is not found") unless Product.where(name: product_name).exists? 
+  expect(page).to have_selector('td', text: product_name)
 end
 

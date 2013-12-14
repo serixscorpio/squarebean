@@ -1,3 +1,7 @@
 = link_to "New Product", new_admin_product_path
-- @products.each do |product|
-  p = link_to "Edit #{product.name}", edit_admin_product_path(product.id)
+table
+  - @products.each do |product|
+    tr
+      td = product.name
+      td = link_to "edit", edit_admin_product_path(product.id), id: "edit-#{product.name}"
+      td = link_to "delete", [:admin, product], method: :delete, id: "delete-#{product.name}"
