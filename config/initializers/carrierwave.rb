@@ -5,7 +5,7 @@ if Rails.env.test? or Rails.env.cucumber?
   end
 end
 
-if Rails.env.development? or Rails.env.production?
+unless Rails.env.test?
   CarrierWave.configure do |config|
     config.storage = :fog
     config.enable_processing = true
