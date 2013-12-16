@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216015942) do
+ActiveRecord::Schema.define(:version => 20131216135757) do
+
+  create_table "event_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -19,9 +25,12 @@ ActiveRecord::Schema.define(:version => 20131216015942) do
     t.text     "description"
     t.text     "more_details"
     t.string   "picture"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "event_category"
   end
+
+  add_index "events", ["event_category"], :name => "index_events_on_event_category"
 
   create_table "inquiries", :force => true do |t|
     t.string   "name"

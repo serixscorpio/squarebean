@@ -13,25 +13,21 @@ Given(/^I am at the Wedding & Events page$/) do
 end
 
 Given(/^the Birthday category has:$/) do |table|
+  # TODO: create events with birthday category
+  @birthday_category = EventCategory.where(name: "Birthday")
   # table is a Cucumber::Ast::Table
   table.hashes.each do |row|
-    Event.create! name: row['event title'], highlight: row['product highlighted'], description: row['description'], more_details: row['more details'], picture: File.open("features/images/#{row['picture']}")
+    @birthday_category.events.create! name: row['event title'], highlight: row['product highlighted'], description: row['description'], more_details: row['more details'], picture: File.open("features/images/#{row['picture']}")
   end
 end
   
-Given(/^"(.*?)" event is shown$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I can go through the content of each Birthday event$/) do
+  # TODO: only pick birthday events
+  Event.all.each do |birthday_event|
+    expect(page).to have_content(birthday_event.name)
+    expect(page).to have_content(birthday_event.highlight)
+    expect(page).to have_content(birthday_event.description)
+    expect(page).to have_content(birthday_event.more_details)
+    expect(page).to have_xpath("//img[contains(@src, \"#{birthday_event.picture}\")]")
+  end
 end
-
-When(/^I go to the next Birtday event$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I see the event "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^The product highlighted is "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
