@@ -1,2 +1,6 @@
 ProductCategory.create(name: 'Cake')
 ProductCategory.create(name: 'Special Item')
+EventCategory.create(name: 'Wedding')
+EventCategory.create(name: 'Birthday')
+EventCategory.create(name: 'Special Events')
+Event.create(name: "bday!", description: "some random description", event_category_id: 2)

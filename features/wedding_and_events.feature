@@ -1,6 +1,9 @@
 Feature: Wedding & Events
   The Wedding & Events page shows past catering events along with photos and descriptions.
 
+  Background: 
+    Given There are Wedding, Birthday, and Special Events categories
+
   Scenario: I see three event categories
     When I visit the Wedding & Events page
     Then I see the Wedding, Birthday, and Special Events categories
