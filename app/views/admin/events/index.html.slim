@@ -1,1 +1,6 @@
 = link_to "New event", new_admin_event_path
+table
+  - @events.each do |event|
+    tr
+      td = event.name
+      td = link_to "Edit", edit_admin_event_path(event), id: "edit-#{event.id}"

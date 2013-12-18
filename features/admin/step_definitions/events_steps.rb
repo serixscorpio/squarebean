@@ -27,3 +27,24 @@ Then(/^I see the details of the birthday event I just entered$/) do
   expect(page).to have_xpath("//img[contains(@src, \"#{@input['picture']}\")]")
 end
 
+When(/^I select to edit event "(.*?)"$/) do |event_name|
+  event = Event.where(name: event_name).first
+  click_link("edit-#{event.id}")
+end
+
+When(/^change the event title to "(.*?)"$/) do |new_event_name|
+    pending # express the regexp above with the code you wish you had
+end
+
+When(/^change the event picture to use "(.*?)"$/) do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the event title becomes "(.*?)"$/) do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
+Then(/^the event picture is updated to "(.*?)"$/) do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
