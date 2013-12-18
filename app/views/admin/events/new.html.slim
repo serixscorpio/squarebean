@@ -1,0 +1,8 @@
+= form_for [:admin, @event] do |f|
+  = f.text_field :name
+  = f.collection_select :event_category_id, @event_categories, :id, :name
+  = f.text_field :highlight
+  = f.text_area :description
+  = f.text_area :more_details
+  = f.file_field :picture
+  = f.submit "Save"

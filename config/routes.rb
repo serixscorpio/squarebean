@@ -9,12 +9,14 @@ Squarebean::Application.routes.draw do
   match 'menu' => 'menu#index'
   match 'events' => 'events#index'
 
+  resources :events
   resources :inquiries
   resources :products
 
   devise_for :users
 
   namespace :admin do
+    resources :events
     resources :products
   end
   # Sample of regular route:

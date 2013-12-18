@@ -22,7 +22,7 @@ Given(/^I have a "(.*?)" category$/) do |name|
 end
 
 Given(/^a "(.*?)" in that category$/) do |product_name|
-  product = Product.create! name: product_name, description: "a delicious macaroon", picture: "features/images/macaroon.jpg"
+  product = Product.create! name: product_name, description: "a delicious macaroon", picture: File.open("features/images/macaroon.jpg")
   product.update_attribute(:product_category_id, @product_category)
 end
 
