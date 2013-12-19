@@ -33,18 +33,19 @@ When(/^I select to edit event "(.*?)"$/) do |event_name|
 end
 
 When(/^change the event title to "(.*?)"$/) do |new_event_name|
-    pending # express the regexp above with the code you wish you had
+  fill_in('event_name', with: new_event_name)
 end
 
-When(/^change the event picture to use "(.*?)"$/) do |arg1|
-    pending # express the regexp above with the code you wish you had
+When(/^change the event picture to use "(.*?)"$/) do |picture|
+  attach_file('event[picture]', File.join(Rails.root, 'features', 'images', picture))
 end
 
-Then(/^the event title becomes "(.*?)"$/) do |arg1|
-    pending # express the regexp above with the code you wish you had
+Then(/^the event title becomes "(.*?)"$/) do |name|
+  click_button('Save')
+  expect(page).to have_content(name)
 end
 
-Then(/^the event picture is updated to "(.*?)"$/) do |arg1|
-    pending # express the regexp above with the code you wish you had
+Then(/^the event picture is updated to "(.*?)"$/) do |picture|
+  expect(page).to have_xpath("//img[contains(@src, \"#{picture}\")]")
 end
 

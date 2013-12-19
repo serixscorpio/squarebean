@@ -29,7 +29,7 @@ class Admin::ProductsController < ApplicationController
       redirect_to admin_product_path(@product.id), notice: "Updated product '#{@product.name}'"
     else
       flash[:error] = "Error updating product.  Please try again."
-      render :new
+      render :edit
     end
   end
 

@@ -19,7 +19,19 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    @event_categories = EventCategory.all
   end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(params[:event])
+      redirect_to [:admin, @event], notice: "Updated event '#{@event.name}'"
+    else
+      flash[:error] = "Cannot update event.  Please try again"
+      render :edit
+    end
+  end 
 
   def show
     @event = Event.find(params[:id])
