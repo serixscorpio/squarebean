@@ -1,0 +1,8 @@
+= form_tag inquiries_path, method: "post" do
+  = label_tag "inquiry[name]", "Name"
+  = text_field_tag "inquiry[name]"
+  = label_tag "inquiry[email]", "Email"
+  = text_field_tag "inquiry[email]"
+  = label_tag "inquiry[content]"
+  = text_area_tag "inquiry[content]"
+  = submit_tag("send")
