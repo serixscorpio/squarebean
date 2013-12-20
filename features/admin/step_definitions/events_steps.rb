@@ -49,3 +49,18 @@ Then(/^the event picture is updated to "(.*?)"$/) do |picture|
   expect(page).to have_xpath("//img[contains(@src, \"#{picture}\")]")
 end
 
+When(/^I select to delete event "(.*?)"$/) do |event_name|
+  event = Event.where(name: event_name).first
+  click_link("delete-#{event.id}")
+end
+
+Then(/^the list of events should not have "(.*?)"$/) do |event_name|
+  fail("Event #{event_name} should not be found") if Event.where(name: event_name).exists? 
+  expect(page).to have_no_selector('td', text: event_name)
+end
+
+Then(/^the list of events should still have "(.*?)"$/) do |event_name|
+  fail("Event #{event_name} is not found") unless Event.where(name: event_name).exists? 
+  expect(page).to have_selector('td', text: event_name)
+end
+

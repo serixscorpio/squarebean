@@ -25,3 +25,13 @@ Feature: Admin Events
     And change the event picture to use "emily_66th_day1.jpg"
     Then the event title becomes "Emily's special day"
     And the event picture is updated to "emily_66th_day1.jpg"
+
+  Scenario: I can delete an existing event
+    Given the Birthday category has:
+      | event title         | product highlighted       | description                            | more details     | picture               |
+      | Emily's 66th day    | Tropical Baby Cake        | Pina coladas with toasted coconut      | link to facebook | emily_66th_day.jpg    | 
+      | Vanessa's Birthday  | Triple Chocolate Mint Cake| Cravings for chocolate with mint       | link to facebook | vanessa_birthday.jpg  |
+    And I visit the list of events
+    When I select to delete event "Emily's 66th day"
+    Then the list of events should not have "Emily's 66th day"
+    And the list of events should still have "Vanessa's Birthday"

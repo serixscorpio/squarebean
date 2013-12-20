@@ -37,4 +37,14 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @category_name = @event.event_category.name
   end
+
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      flash[:notice] = "Deleted event '#{@event.name}'"
+    else
+      flash[:error] = "Error deleting event. Please try again."
+    end
+    redirect_to admin_events_path
+  end
 end

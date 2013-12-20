@@ -4,3 +4,4 @@ table
     tr
       td = event.name
       td = link_to "Edit", edit_admin_event_path(event), id: "edit-#{event.id}"
+      td = link_to "Delete", [:admin, event], method: :delete, id: "delete-#{event.id}"
