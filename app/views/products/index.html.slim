@@ -1,13 +1,15 @@
-div id="specialty"
-  - @products.each do |product|
-    div id="#{product.name}"
-      p = product.name
-      p = product.description
-      img src="#{product.picture}"
-      - if product.is_gluten_free
-        p gluten free
-      - if product.is_dairy_free
-        p dairy free
-      - if product.is_vegan
-        p vegan
+section class="menu"
+  h2 Menu
+  div id="specialty"
+    - @products.each do |product|
+      div id="#{product.name}"
+        p = product.name
+        p = product.description
+        img src="#{product.picture}"
+        - if product.is_gluten_free
+          p gluten free
+        - if product.is_dairy_free
+          p dairy free
+        - if product.is_vegan
+          p vegan
 

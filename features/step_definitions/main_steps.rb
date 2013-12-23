@@ -4,7 +4,7 @@ end
 
 Then(/^I see links to About page, Menu page, and Wedding & Catering Events page$/) do
   page.should have_link("About", href: '/about')
-  page.should have_link("Menu", href: '/menu')
+  page.should have_link("Menu", href: '/products')
   page.should have_link("Wedding & Catering Events", href: '/events')
 end
 
@@ -13,7 +13,13 @@ When(/^I click on "(.*?)"$/) do |page_name|
 end
 
 Then(/^I see the "(.*?)" page$/) do |page_name|
-  expect(page).to have_title page_name
+  page_to_section_names = {
+    "About" => "about",
+    "Menu" => "menu",
+    "Wedding & Catering Events" => "event"
+    # TODO: add more page name to section name mappings here, and refactor this
+  }
+  expect(page).to have_selector "section.#{page_to_section_names[page_name]}"
 end
 
 Given(/^I have (valid|invalid) email address "(.*?)"$/) do |email_validity, email_address|

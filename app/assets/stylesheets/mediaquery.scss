@@ -1,0 +1,271 @@
+
+
+$menuH : 100px;
+$white: rgba(250, 250, 250, 1);
+$black: #1a1a1a;
+$orange: #B07E09;
+$gray: rgba(88, 89, 91, 1);
+$mid_gray: rgba(137, 137, 137, 1);
+$light_gray: rgba(211, 211, 211, 1);
+$ivory: #FFFFF0;
+$gold:#998675;
+$global-radius:5px;
+
+
+/**********************MEDIA QUERIES***********************/
+@media all and (min-width: 1400px){
+	.question{
+		padding: 20px;
+	}
+	ul.mainnav{
+		font-size: 14px;
+		letter-spacing: 0.1em;
+	}
+	.mobile_topmenu_wrapper, ul.mobile_topmenu{
+		display: none;
+	}
+
+	.mobile_img{
+		display: none;
+	}
+}
+@media all and (max-width: 1400px) and (min-width: 1024px){
+	.question{
+		padding: 20px;
+	}
+	ul.aboutNav{
+		display: none;
+	}
+	.mobile_topmenu_wrapper, ul.mobile_topmenu{
+		display: none;
+	}
+	.mobile_img{
+		display: none;
+	}
+}
+@media all and (max-width: 1024px) and (min-width: 768px){
+	.question{
+		padding: 20px;
+	}
+	ul.mainnav{
+		font-size: 14px;
+	}
+	ul.aboutNav{
+		display: none;
+	}
+	.mobile_topmenu_wrapper, ul.mobile_topmenu{
+		display: none;
+	}
+	.mobile_img{
+		display: none;
+	}
+
+}
+@media all and (max-width: 768px) and (min-width: 568px){
+	.question{
+		padding: 20px 20px 30px 20px;
+	}
+	ul.mainnav{
+		display: none;
+	}
+
+	ul.aboutNav{
+		display: none;
+	}
+
+	.mobile_topmenu_wrapper{
+		display: block;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0px;
+		.toggle{
+			width: 40px;
+			height: 24px;
+			position: absolute;
+			top: 28px; 
+			right: 15px;
+			background-image: url(../img/toggle.jpg);
+			background-position: top left;
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+		.toggle.active{
+			background-position: bottom left;
+		}
+		ul.mobile_topmenu{
+			position: relative;
+			top: 80px;
+			margin: 0; padding: 0;
+			width: 100%;
+			height: 160px;
+			display: none;
+			text-transform: uppercase;
+			color: white;
+			font-size: 12px;
+			border-top: 1px solid $light_gray;
+			border-left: 1px solid $light_gray;
+			background-color: $orange;
+			li{
+				width: 100%;
+				float: left;
+				list-style: none;
+				text-align: center;
+				line-height: 32px;
+				height: 32px;
+				cursor: pointer;
+				border-bottom: 1px solid $light_gray;
+				border-right: 1px solid $light_gray;
+			}
+			a{
+				color: white;
+			}
+			li:hover, li.active a, li a:hover{
+				color: white;
+			}
+		}
+	}
+
+}
+@media all and (max-width: 568px) and (min-width: 320px){
+	.question{
+		padding: 20px 20px 30px 20px;
+	}
+	ul.mainnav{
+		display: none;
+	}
+	ul.aboutNav{
+		display: none;
+	}
+	.btn_down{
+		display: none;
+	}
+	.header{
+		display: block;
+	}
+	.mobile_topmenu_wrapper{
+		display: block;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0px;
+		.toggle{
+			width: 40px;
+			height: 24px;
+			position: absolute;
+			top: 28px; 
+			right: 15px;
+			background-image: url(../img/toggle.jpg);
+			background-position: top left;
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+		.toggle.active{
+			background-position: bottom left;
+		}
+		ul.mobile_topmenu{
+			position: relative;
+			top: 80px;
+			margin: 0; padding: 0;
+			width: 100%;
+			height: 160px;
+			display: none;
+			text-transform: uppercase;
+			color: white;
+			font-size: 12px;
+			border-top: 1px solid $light_gray;
+			border-left: 1px solid $light_gray;
+			background-color: $orange;
+			li{
+				width: 100%;
+				float: left;
+				list-style: none;
+				text-align: center;
+				line-height: 32px;
+				height: 32px;
+				cursor: pointer;
+				border-bottom: 1px solid $light_gray;
+				border-right: 1px solid $light_gray;
+			}
+			a{
+				color: white;
+			}
+			li:hover, li.active a, li a:hover{
+				color: white;
+			}
+		}
+	}
+
+}
+@media all and (max-width: 320px) and (min-width: 0px){
+	body, html{
+		font-size: 11px;
+	}
+	.question{
+		padding: 20px 20px 30px 20px;
+	}
+	
+	ul.mainnav{
+		display: none;
+	}
+	ul.aboutNav{
+		display: none;
+	}
+	.btn_down{
+		display: none;
+	}
+
+	.mobile_topmenu_wrapper{
+		display: block;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0px;
+		.toggle{
+			width: 40px;
+			height: 24px;
+			position: absolute;
+			top: 28px; 
+			right: 15px;
+			background-image: url(../img/toggle.jpg);
+			background-position: top left;
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+		.toggle.active{
+			background-position: bottom left;
+		}
+		ul.mobile_topmenu{
+			position: relative;
+			top: 80px;
+			margin: 0; padding: 0;
+			width: 100%;
+			height: 160px;
+			display: none;
+			text-transform: uppercase;
+			color: white;
+			font-size: 12px;
+			border-top: 1px solid $light_gray;
+			border-left: 1px solid $light_gray;
+			background-color: $orange;
+			li{
+				width: 100%;
+				float: left;
+				list-style: none;
+				text-align: center;
+				line-height: 32px;
+				height: 32px;
+				cursor: pointer;
+				border-bottom: 1px solid $light_gray;
+				border-right: 1px solid $light_gray;
+			}
+			a{
+				color: white;
+			}
+			li:hover, li.active a, li a:hover{
+				color: white;
+			}
+		}
+	}
+}
+

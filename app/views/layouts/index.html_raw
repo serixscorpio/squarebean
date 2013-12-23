@@ -1,0 +1,483 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body>
+    
+<div class="header">
+    <div class="row">
+      <div class="large-4 small-8 columns">
+        <img src="img/logo_580x180.png" alt="" class="logo">
+      </div>
+        <div class="large-8 small-8 columns">
+        <ul class="mainnav">
+          <li class="clickable active" rel="1" id="btn_about">about</li>
+          <li>/</li>
+          <li class="clickable" rel="2" id="btn_menu">menu</li>
+          <li>/</li>
+          <li class="clickable" rel="3" id="btn_event">event</li>
+          <li>/</li>
+          <li class="clickable" rel="4" id="btn_faq">FAQ</li>
+          <li>/</li>
+          <li class="clickable" rel="5" id="btn_contact">contact</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mobile_topmenu_wrapper hide_ie8">
+      <div class="toggle">menu</div>
+      <ul class="mobile_topmenu">
+        <li class="clickable" rel="1" id="btn_about">about</li>
+        <li class="clickable" rel="2" id="btn_menu">menu</li>
+        <li class="clickable" rel="3" id="btn_event">event</li>
+        <li class="clickable" rel="4" id="btn_faq">FAQ</li>
+        <li class="clickable" rel="5" id="btn_contact">contact</li>
+      </ul>
+    </div>
+    <div class="sub-bar"> 
+      <ul class="sub-left"><li>Western Desert with Asian Twists</li></ul>
+      <ul class="sub-right">
+        <li><a href="mailto:squarebean@gmail.com" target="_blank">visit our facebook</a></li>
+        <li><a href="mailto:squarebean@gmail.com" target="_blank">squarebean@gmail.com</a></li> 
+        <li>714 756 1268</li>
+      </ul>
+    </div>
+  </div><!--END .header-->
+  <div class="container">
+    <section class="about">
+      <div class="row">
+        <div class="large-12 large-centered small-centered columns">
+
+             <img src="img/about_960x650.png" alt="" width="auto">
+
+        </div>
+      </div>
+      <div class="btn_down" rel="2"><p>SCROLL</p></div>
+    </section>
+
+<section class="menu">
+      <span>
+        <div class="row topbar">
+          <div class="large-2 small-2 columns"><h1>MENU</h1></div>  
+          <div class="large-5 small-5 columns"><ul><li>cake</li><li>special items</li></ul></div>
+          <div class="large-5 small-5 columns"><a>download PDF</a></div>
+            </div>
+        </span>
+              
+  <div class="row tier">
+    <div class="large-12 columns">
+          <div class="menu-title"><h2>cake</h2></div>
+    <div class="row">
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/1_2.JPG"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/1_2.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/1_2.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/2_1.JPG"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/2_1.JPG"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/2_1.JPG"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+    </div>
+
+        <div class="row">
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/4_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/4_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/4_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+    </div>
+      
+    </div><!-- COLUMN CAKE -->
+  </div><!-- SECTION CAKE-->
+
+  <div class="row tier">
+    <div class="large-12 columns">
+          <div class="menu-title"><h2>SPECIAL ITEMS</h2></div>
+    <div class="row">
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+    </div>
+
+        <div class="row tier">
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+    </div>
+           <div class="row tier">
+      <div class="large-6 medium-6 small-12 columns item-container">  
+          <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/3_1.jpg"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div>
+      </div>
+      <div class="large-6 medium-6 small-12 columns item-container">  
+        <!--   <div class="item-thumbnail">
+          <ul class="clearing-thumbs clearing-feature" data-clearing> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/1.JPG"></a></li> 
+            <li class="clearing-featured-img">
+              <a href="http://placehold.it/500x500"><img src="img/cake/1.JPG"></a></li> 
+            <li><a href="http://placehold.it/500x500"><img src="img/cake/1.JPG"></a></li> 
+          </ul></div> 
+          <div class="item-detail">
+            <h4>cake name</h4>
+            <p>discription</p>
+            <span>
+              <ul class="note"><li>gluten free</li></ul>
+              <ul class="price"><li>$30</li></ul> 
+            </span>
+           </div> -->
+      </div>
+    </div>
+      
+    </div><!-- COLUMN SPECIAL ITEM -->
+  </div><!-- SECTION CAKE-->
+  
+</section><!-- MENU ends-->
+
+    <section class="event">
+      <span><div class="row">
+        <div class="large-12 small-12 columns"><h1>WEDDING & EVENTS</h1></div>
+        </div></span>
+
+      <div class="row ">
+        <div class="large-12 columns">
+          <span class="event-title"><h2>01 / BIRTHDAY</h2></span>
+        <ul class="orbit-content" data-orbit>
+          <li data-orbit-slide="headline-1">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+           <li data-orbit-slide="headline-2">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+          <li data-orbit-slide="headline-3">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li> 
+        </ul>
+        </div>
+      </div><!-- 01/ birthday END-->
+
+      <div class="row ">
+        <div class="large-12 columns">
+          <span class="event-title"><h2>02 / WEDDING</h2></span>
+        <ul class="orbit-content" data-orbit>
+          <li data-orbit-slide="headline-1">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+           <li data-orbit-slide="headline-2">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+          <li data-orbit-slide="headline-3">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li> 
+        </ul>
+        </div>
+      </div><!-- 02 / WEDDING END-->
+
+      <div class="row">
+        <div class="large-12 columns">
+          <span class="event-title"><h2>03 / SPECIAL EVENTS</h2></span>
+        <ul class="orbit-content" data-orbit>
+          <li data-orbit-slide="headline-1">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+           <li data-orbit-slide="headline-2">
+            <div>
+              <img src="img\events\01.jpg">
+              <span>
+              <h2>Chocalate Strawberry Cake</h2><hr>
+              <p>Moist cake body layered with fresh tarofilling and wipped cream. decorated with chpped almonds and deried fruit.</p>
+              <a href="">full story</a>
+              </span>
+            </div>
+          </li>
+        </ul>
+        </div>
+      </div><!-- 03 / SPECIAL EVENTS END-->
+    </section>
+    <section class="faq">
+      <span><div class="row">
+        <div class="large-12 small-12 columns"><h1>FAQ</h1></div>
+        </div></span>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="question_set">
+            <div class="question row">
+              <div class="large-11 columns">
+                
+              Q: How do I order your cakes and desserts as gifts? 
+              </div>
+              <div class="large-1 columns">
+                <div class="btn_faqOpen"></div>
+              </div>
+            </div>
+            <div class="answer row">
+              <div class="large-12 columns">
+                A: Who wouldn't want to share food that taste this good? As much as we would love for your family and friends to taste our food, we are currently unable to ship any of our cakes since we use the freshest ingredients without any preservatives. 
+
+
+              </div>
+            </div>
+          </div>
+          <div class="question_set">
+            <div class="question row">
+              <div class="large-11 columns">
+                Q: Do you deliver?
+              </div>
+              <div class="large-1 columns">
+                <div class="btn_faqOpen"></div>
+              </div>
+            </div>
+            <div class="answer row">
+              <div class="large-12 columns">
+                A: We are happy to deliver for free to locations that are within 10 miles from the city center of Cypress (90630) on orders that are more than 100 dollars. For orders that are within 100 dollars, we charge $1 for each addition mile beyond the first 10 miles. For orders that are more than 100 dollars to be delivered to a location more than 10 miles away, a fixed delivery charge can be negotiated prior to the delivery.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <span><div class="row">
+        <div class="large-12 small-12 columns"><h1>CONTACT</h1></div>
+        </div></span>
+        <div class="row">
+        <div class="large-12 columns">
+             <ul class="contact-info">
+              <li>visit our facebook</li>
+              <li>6462563735</li>
+              <li>squarebean@gmail.com</li>
+             </ul>  
+        </div>
+        </div>
+      <div class="row">
+        <form class="large-9 small-12 columns" >  
+        <img src="img/formtitle.png">    
+              <div class="row">
+                <div class="small-9 columns">
+              
+                  <input type="text" id="right-label" placeholder="Name ">
+                </div>
+              </div>
+        
+          
+              <div class="row">
+                <div class="small-9 columns">
+                  <input type="text" id="right-label" placeholder="Email ">
+                </div>
+              </div>
+        
+      
+              <div class="row">
+                <div class="small-12 columns">
+                  <input type="text" id="right-label" placeholder="Message ">
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-3 medium-3 columns large-offset-9">
+                  <a class="submit" href="#"> <img src="img/send.png" alt=""></a>
+                </div>
+            </div>
+        </form>
+
+      
+      </div>
+    </section>
+  </div>
+  
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script type="text/javascript" src="//use.typekit.net/xtm4hvu.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </body> 
+</html>

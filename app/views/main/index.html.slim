@@ -1,14 +1,46 @@
-a href="#{about_path}" About
-a href="#{menu_path}" Menu
-a href="#{events_path}" Wedding & Catering Events
+div class="header"
+  div class="row"
+    div class="large-4 small-8 columns"
+      img src="img/logo_580x180.png" alt="" class="logo"
+    div class="large-8 small-8 columns"
+      ul class="mainnav"
+        li class="clickable active" rel="1" id="btn_about" about
+        li /
+        li class="clickable" rel="2" id="btn_menu" menu
+        li /
+        li class="clickable" rel="3" id="btn_event" event
+        li /
+        li class="clickable" rel="4" id="btn_faq" FAQ
+        li /
+        li class="clickable" rel="5" id="btn_contact" contact
+  div class="row mobile_topmenu_wrapper hide_ie8"
+    div class="toggle" menu
+    ul class="mobile_topmenu"
+      li class="clickable" rel="1" id="btn_about" about
+      li class="clickable" rel="2" id="btn_menu" menu
+      li class="clickable" rel="3" id="btn_event" event
+      li class="clickable" rel="4" id="btn_faq" FAQ
+      li class="clickable" rel="5" id="btn_contact" contact
+  div class="sub-bar"
+    ul class="sub-left"
+      li Western Desert with Asian Twists
+    ul class="sub-right"
+      li
+        a href="mailto:squarebean@gmail.com" target="_blank" visit our facebook
+      li
+        a href="mailto:squarebean@gmail.com" target="_blank" squarebean@gmail.com
+      li 714 756 1268
 
-h2 Products
-= render file: "products/index"
+div class="container"
+  = render file: "about/index"
+  = render file: "products/index"
+  = render file: "events/index"
 
-h2 Events
-= render file: "events/index"
-
-h2 FAQ
-
-h2 Contact
-= render file: "inquiries/_form"
+  section class="dev"
+    / TODO: This part is for dev purposes, remove eventually
+    a href="#{about_path}" About
+    a href="#{products_path}" Menu
+    a href="#{events_path}" Wedding & Catering Events
+    h2 FAQ
+    h2 Contact
+    = render file: "inquiries/_form"
