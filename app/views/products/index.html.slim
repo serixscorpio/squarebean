@@ -1,4 +1,33 @@
 section class="menu"
+  span
+    div class="row topbar"
+      div class="large-2 small-2 columns"
+        h1 MENU
+      div class="large-5 small-5 columns"
+        ul
+          li cake
+          li special items
+      div class="large-5 small-5 columns"
+        a download PDF
+  div class="row tier"
+    div class="large-12 columns"
+      div class="menu-title"
+        h2 Cake
+    = @cakes.each_slice(2) do |cake_row|
+      div class="row"
+        = render partial: "products/product_detail", locals: { product: cake_row[0] }
+        - if cake_row.length == 2 
+          = render partial: "products/product_detail", locals: { product: cake_row[1] }
+  div class="row tier"
+    div class="large-12 columns"
+      div class="menu-title"
+        h2 Special Item
+    = @special_items.each_slice(2) do |special_item_row|
+      div class="row"
+        = render partial: "products/product_detail", locals: { product: special_item_row[0] }
+        - if special_item_row.length == 2 
+          = render partial: "products/product_detail", locals: { product: special_item_row[1] }
+/
   h2 Menu
   div id="specialty"
     - @products.each do |product|

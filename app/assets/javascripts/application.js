@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require_tree .
-
+//= require foundation.min.js
+//= require jquery.easing.1.3
+//= require jquery.transit.min
+//= require main
 $(document).foundation();
-
-$(function(){ $(document).foundation(); });
