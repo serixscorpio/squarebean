@@ -9,9 +9,9 @@ When(/^I visit the Wedding & Events page$/) do
 end
 
 Then(/^I see the Wedding, Birthday, and Special Events categories$/) do
-  expect(page).to have_content("Wedding")
-  expect(page).to have_content("Birthday")
-  expect(page).to have_content("Special Events")
+  expect(page).to have_content("WEDDING")
+  expect(page).to have_content("BIRTHDAY")
+  expect(page).to have_content("SPECIAL EVENTS")
 end
 
 Given(/^I am at the Wedding & Events page$/) do
@@ -26,12 +26,13 @@ Given(/^the Birthday category has:$/) do |table|
 end
   
 Then(/^I can go through the content of each Birthday event$/) do
-  # TODO: only pick birthday events
   Event.joins(:event_category).where(event_categories: {name: "Birthday"}).each do |birthday_event|
     expect(page).to have_content(birthday_event.name)
-    expect(page).to have_content(birthday_event.highlight)
+    #expect(page).to have_content(birthday_event.highlight) # TODO: clarify if
+    # the highlight field is needed.
     expect(page).to have_content(birthday_event.description)
-    expect(page).to have_content(birthday_event.more_details)
+    #expect(page).to have_content(birthday_event.more_details) # TODO: clarify
+    # how more details is stored, should it be a url?
     expect(page).to have_xpath("//img[contains(@src, \"#{birthday_event.picture}\")]")
   end
 end

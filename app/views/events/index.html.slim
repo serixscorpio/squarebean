@@ -1,9 +1,26 @@
 section class="event"
-  - @event_categories.each do |event_category|
-    div = event_category.name
-    - event_category.events.each do |event|
-      p = event.name
-      p = event.highlight
-      p = event.description
-      p = event.more_details
-      = image_tag(event.picture)
+  span
+    div class="row"
+      div class="large-12 small-12 columns"
+        h1 WEDDING & EVENTS
+  div class="row "
+    div class="large-12 columns"
+      span class="event-title"
+        h2 01 / BIRTHDAY
+      ul class="orbit-content" data-orbit=""
+        - @birthdays.each_with_index do |birthday, index|
+          = render partial: "events/event_detail", locals: {event: birthday, index: index}
+  div class="row "
+    div class="large-12 columns"
+      span class="event-title"
+        h2 02 / WEDDING
+      ul class="orbit-content" data-orbit=""
+        - @weddings.each_with_index do |wedding|
+          = render partial: "events/event_detail", locals: {event: wedding}
+  div class="row "
+    div class="large-12 columns"
+      span class="event-title"
+        h2 03 / SPECIAL EVENTS
+      ul class="orbit-content" data-orbit=""
+        - @special_events.each_with_index do |special_event|
+          = render partial: "events/event_detail", locals: {event: special_event}
