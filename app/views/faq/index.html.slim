@@ -1,0 +1,15 @@
+section class="faq"
+  span
+    div class="row"
+      div class="large-12 small-12 columns"
+        h1 FAQ
+  div class="row"
+    div class="large-12 columns"
+      - @faqs.each do |faq|
+        div class="question_set"
+          div class="question row"
+            div class="large-11 columns" Q: = faq.question
+            div class="large-1 columns"
+              div class="btn_faqOpen"
+          div class="answer row"
+            div class="large-12 columns" A: = faq.answer

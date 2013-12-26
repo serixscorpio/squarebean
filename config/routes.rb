@@ -1,5 +1,6 @@
 Squarebean::Application.routes.draw do
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -8,6 +9,7 @@ Squarebean::Application.routes.draw do
   match 'about' => 'about#index'
   match 'menu' => 'menu#index'
   match 'events' => 'events#index'
+  match 'faq' => 'faq#index'
 
   resources :events
   resources :inquiries

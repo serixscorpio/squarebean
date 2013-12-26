@@ -7,5 +7,6 @@ class MainController < ApplicationController
     @birthdays = Event.joins(:event_category).where(event_categories: {name: 'Birthday'})
     @weddings= Event.joins(:event_category).where(event_categories: {name: 'Wedding'})
     @special_events= Event.joins(:event_category).where(event_categories: {name: 'Special Events'})
+    @faqs = Faq.order(:display_order)
   end
 end
