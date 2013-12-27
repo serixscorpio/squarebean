@@ -1,0 +1,5 @@
+= form_for [:admin, faq] do |f|
+  = f.text_area :question
+  = f.text_area :answer
+  = f.number_field :display_order, min: 1, step: 1
+  = f.submit "Save"

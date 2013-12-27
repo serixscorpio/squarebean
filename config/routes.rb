@@ -20,6 +20,7 @@ Squarebean::Application.routes.draw do
   namespace :admin do
     resources :events
     resources :products
+    resources :faqs
   end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -8,8 +8,12 @@ section class="faq"
       - @faqs.each do |faq|
         div class="question_set"
           div class="question row"
-            div class="large-11 columns" Q: = faq.question
+            div class="large-11 columns"
+              'Q:
+              = faq.question
             div class="large-1 columns"
               div class="btn_faqOpen"
           div class="answer row"
-            div class="large-12 columns" A: = faq.answer
+            div class="large-12 columns"
+              'A:
+              = faq.answer

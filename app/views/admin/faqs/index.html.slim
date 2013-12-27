@@ -1,0 +1,9 @@
+= link_to "New faq", new_admin_faq_path
+table
+  - @faqs.each do |faq|
+    tr
+      td = faq.question
+      td = faq.answer
+      td = faq.display_order
+      td = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
+      td = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"
