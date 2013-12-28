@@ -64,3 +64,16 @@ Then(/^the list of FAQs should still have "(.*?)"$/) do |faq_question|
   expect(page).to have_selector('td', text: faq_question)
 end
 
+When(/^I change the order of "(.*?)" to "(.*?)"$/) do |faq_question, desired_order|
+  faq = Faq.where(question: faq_question).first
+  within("//form[@id='edit_faq_#{faq.id}']") do
+    fill_in "faq_display_order", with: desired_order
+    click_button("Update order")
+  end
+end
+
+Then(/^the order of "(.*?)" becomes "(.*?)"$/) do |faq_question, expected_order|
+  faq = Faq.where(question: faq_question).first
+  fail("FAQ's order incorrect") unless faq.display_order == expected_order.to_i
+end
+

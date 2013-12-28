@@ -31,3 +31,12 @@ Feature: Admin FAQs
     When I select to delete FAQ "Do you deliver?"
     Then the list of FAQs should not have "Do you deliver?"
     But the list of FAQs should still have "Do you make mochi?"
+
+  Scenario: I can change the ordering of existing FAQs
+    Given the following FAQs:
+      | question            | answer  | order |
+      | Do you deliver?     | Yes     | 1     |
+      | Do you make mochi?  | Sure!   | 2     |
+    And I visit the list of FAQs
+    When I change the order of "Do you deliver?" to "3"
+    Then the order of "Do you deliver?" becomes "3"

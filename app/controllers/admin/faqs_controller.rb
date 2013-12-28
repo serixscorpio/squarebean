@@ -1,4 +1,6 @@
 class Admin::FaqsController < ApplicationController
+  respond_to :html, :js
+
   def index
     @faqs = Faq.all
   end
@@ -28,10 +30,15 @@ class Admin::FaqsController < ApplicationController
   def update
     @faq = Faq.find(params[:id])
     if @faq.update_attributes(params[:faq])
-      redirect_to [:admin, @faq], notice: "updated FAQ"
+      flash[:notice] = "updated FAQ '#{@faq.question}'"
     else
       flash[:error] = "Cannot update FAQ.  Please try again"
       render :edit
+    end
+
+    respond_with(@faq) do |f|
+      f.html { redirect_to [:admin, @faq], notice: "updated FAQ" }
+      f.js { flash.now[:notice] = "updated FAQ '#{@faq.question}'"}
     end
   end
 

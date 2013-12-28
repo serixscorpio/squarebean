@@ -4,6 +4,8 @@ table
     tr
       td = faq.question
       td = faq.answer
-      td = faq.display_order
+      td
+        div id="faq-#{faq.id}"
+        = render partial: "update_display_order_form", locals: {faq: faq}
       td = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
       td = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"
