@@ -34,4 +34,14 @@ class Admin::FaqsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @faq = Faq.find(params[:id])
+    if @faq.destroy
+      flash[:notice] = "Deleted FAQ '#{@faq.question}'"
+    else
+      flash[:error] = "Error deleting FAQ. Please try again."
+    end
+    redirect_to admin_faqs_path
+  end
 end

@@ -21,3 +21,13 @@ Feature: Admin FAQs
     And change the faq answer to "No"
     Then the faq question becomes "Do you deliver to more than 10 miles away?"
     And the faq answer becomes "No"
+    
+  Scenario: I can delete an existing FAQ
+    Given the following FAQs:
+      | question            | answer  | order |
+      | Do you deliver?     | Yes     | 1     |
+      | Do you make mochi?  | Sure!   | 2     |
+    And I visit the list of FAQs
+    When I select to delete FAQ "Do you deliver?"
+    Then the list of FAQs should not have "Do you deliver?"
+    But the list of FAQs should still have "Do you make mochi?"

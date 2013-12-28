@@ -49,3 +49,18 @@ Then(/^the faq answer becomes "(.*?)"$/) do |edited_faq_answer|
   expect(page).to have_content(edited_faq_answer)
 end
 
+When(/^I select to delete FAQ "(.*?)"$/) do |faq_question|
+  faq = Faq.where(question: faq_question).first
+  click_link("delete-#{faq.id}")
+end
+
+Then(/^the list of FAQs should not have "(.*?)"$/) do |faq_question|
+  fail("FAQ '#{faq_question}' should not be found") if Faq.where(question: faq_question).exists? 
+  expect(page).to have_no_selector('td', text: faq_question)
+end
+
+Then(/^the list of FAQs should still have "(.*?)"$/) do |faq_question|
+  fail("FAQ '#{faq_question}' is not found") unless Faq.where(question: faq_question).exists? 
+  expect(page).to have_selector('td', text: faq_question)
+end
+
