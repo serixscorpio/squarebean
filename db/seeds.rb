@@ -10,7 +10,7 @@ event_categories = [
   EventCategory.create(name: 'Special Events')
 ]
 
-case Rail.env
+case Rails.env
 when "development"
   # create products
   product_categories.each do |product_category|
