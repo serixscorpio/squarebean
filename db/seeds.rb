@@ -48,9 +48,30 @@ when "development"
     )
   end
 
-when "production"
+when "production" # production only  seed data
 
-  # production only  seed data
+  # create cake products
+  product_categories[0].products.create(
+    name: "Muffin",
+    description: "super awesome!",
+    picture: "http://placehold.it/500x500",
+    is_gluten_free: true,
+    is_dairy_free: false,
+    is_vegan: false
+  )
+
+  # create special items
+  product_categories[1].products.create(
+    name: "Macaroon",
+    description: "super delicious!",
+    picture: "http://placehold.it/500x500",
+    is_gluten_free: true,
+    is_dairy_free: false,
+    is_vegan: true
+  )
+
+
+  # create faqs
   Faq.create(
     question: "How do I order your cakes and desserts as gifts?",
     answer: "Who wouldn't want to share food that taste this good? As much as we would love for your family and friends to taste our food, we are currently unable to ship any of our cakes since we use the freshest ingredients without any preservatives.",
