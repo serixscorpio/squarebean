@@ -70,6 +70,14 @@ when "production" # production only  seed data
     is_vegan: true
   )
 
+  # create birthday events
+  event_categories[1].events.create(
+    name: "Emily's 66th day",
+    highlight: "Tropical Baby Cake",
+    description: "Pina coladas with toasted coconut",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037"
+  )
 
   # create faqs
   Faq.create(
