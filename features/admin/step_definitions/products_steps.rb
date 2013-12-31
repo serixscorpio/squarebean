@@ -1,6 +1,6 @@
 Given(/^There are "(.*?)" and "(.*?)" product categories$/) do |product_category1, product_category2|
-  FactoryGirl.create(:cake_category)
-  FactoryGirl.create(:special_item_category)
+  @cake_category = FactoryGirl.create(:cake_category)
+  @special_item_category = FactoryGirl.create(:special_item_category)
 end
 
 Given(/^I am logged in as an admin$/) do
@@ -70,5 +70,20 @@ end
 Then(/^The list of products should still have "(.*?)"$/) do |product_name|
   fail("Product #{product_name} is not found") unless Product.where(name: product_name).exists? 
   expect(page).to have_selector('td', text: product_name)
+end
+
+When(/^I visit the default admin page$/) do
+  visit admin_path
+end
+
+Then(/^I see the list of products$/) do
+  expect(page).to have_selector("h2.#{@cake_category.name.downcase.tr(' ', '_')}")
+  expect(page).to have_selector("h2.#{@special_item_category.name.downcase.tr(' ', '_')}")
+end
+
+Then(/^I see links to admin Product page, Event page, and FAQ page$/) do
+  expect(page).to have_link('Product', href: '/admin/products')
+  expect(page).to have_link('Event', href: '/admin/events')
+  expect(page).to have_link('FAQ', href: '/admin/faqs')
 end
 

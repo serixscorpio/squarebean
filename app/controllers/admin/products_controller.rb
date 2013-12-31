@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @categories = ProductCategory.includes(:products)
   end
 
   def new

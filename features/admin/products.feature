@@ -31,3 +31,9 @@ Feature: Admin Products
     When I select to delete the "Macaroon"
     Then The list of products should not have "Macaroon"
     And The list of products should still have "Muffin"
+
+  Scenario: The default admin page shows the list of products and links to other admin pages
+    When I visit the default admin page
+    Then I see the list of products
+    And I see links to admin Product page, Event page, and FAQ page
+

@@ -3,7 +3,7 @@ Feature: Main
 
   Scenario: I can see the Main page
     When I am at the Main page
-    Then I see links to About page, Menu page, and Wedding & Catering Events page
+    Then I see links to About page, Menu page, Event page, FAQ page, and Contact page
 
   Scenario Outline: visiting other pages from Main page
     When I am at the Main page
@@ -12,9 +12,11 @@ Feature: Main
 
     Examples:
       | page name |
-      | About |
-      | Menu |
-      | Wedding & Catering Events |
+      | about |
+      | menu |
+      | event |
+      | FAQ |
+      | contact |
 
   Scenario: I can contact Square Bean
     Given I have valid email address "serixscorpio@gmail.com"

@@ -18,6 +18,7 @@ Squarebean::Application.routes.draw do
   devise_for :users
 
   namespace :admin do
+    get '/' => 'products#index'
     resources :events
     resources :products
     resources :faqs
