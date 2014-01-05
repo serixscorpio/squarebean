@@ -64,3 +64,13 @@ Then(/^the list of events should still have "(.*?)"$/) do |event_name|
   expect(page).to have_selector('td', text: event_name)
 end
 
+When(/^I visit the admin event page$/) do
+  visit admin_events_path
+end
+
+Then(/^I see the list of events$/) do
+  expect(page).to have_selector("h2.#{@birthday_category.name.downcase.tr(' ', '_')}")
+  expect(page).to have_selector("h2.#{@wedding_category.name.downcase.tr(' ', '_')}")
+  expect(page).to have_selector("h2.#{@special_events_category.name.downcase.tr(' ', '_')}")
+end
+

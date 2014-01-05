@@ -77,3 +77,11 @@ Then(/^the order of "(.*?)" becomes "(.*?)"$/) do |faq_question, expected_order|
   fail("FAQ's order incorrect") unless faq.display_order == expected_order.to_i
 end
 
+When(/^I visit the admin FAQ page$/) do
+  visit admin_faqs_path
+end
+
+Then(/^I see the list of FAQs$/) do
+  expect(page).to have_selector("section.admin-faq")
+end
+

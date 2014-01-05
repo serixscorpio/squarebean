@@ -35,3 +35,8 @@ Feature: Admin Events
     When I select to delete event "Emily's 66th day"
     Then the list of events should not have "Emily's 66th day"
     And the list of events should still have "Vanessa's Birthday"
+
+  Scenario: The admin event page shows the list of events and links to other admin pages
+    When I visit the admin event page
+    Then I see the list of events 
+    And I see links to admin Product page, Event page, and FAQ page

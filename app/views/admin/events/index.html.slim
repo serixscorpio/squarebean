@@ -1,7 +1,14 @@
-= link_to "New event", new_admin_event_path
-table
-  - @events.each do |event|
-    tr
-      td = event.name
-      td = link_to "Edit", edit_admin_event_path(event), id: "edit-#{event.id}"
-      td = link_to "Delete", [:admin, event], method: :delete, id: "delete-#{event.id}"
+section class="admin-event"
+  div class="row"
+    div class="small-12 large-6"
+      = link_to "New event", new_admin_event_path
+    div class="small-12 large-6"
+      - @event_categories.each do |event_category|
+        h2 class=event_category.name.downcase.tr(' ', '_')
+          = event_category.name
+        table
+          - event_category.events.each do |event|
+            tr
+              td = event.name
+              td = link_to "Edit", edit_admin_event_path(event), id: "edit-#{event.id}"
+              td = link_to "Delete", [:admin, event], method: :delete, id: "delete-#{event.id}"

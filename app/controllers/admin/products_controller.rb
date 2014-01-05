@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::BaseController
   def index
     @categories = ProductCategory.includes(:products)
   end

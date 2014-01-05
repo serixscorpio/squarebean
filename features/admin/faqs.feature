@@ -40,3 +40,8 @@ Feature: Admin FAQs
     And I visit the list of FAQs
     When I change the order of "Do you deliver?" to "3"
     Then the order of "Do you deliver?" becomes "3"
+
+  Scenario: The admin FAQ page shows the list of FAQs and links to other admin pages
+    When I visit the admin FAQ page
+    Then I see the list of FAQs 
+    And I see links to admin Product page, Event page, and FAQ page

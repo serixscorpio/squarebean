@@ -1,7 +1,7 @@
 Given(/^There are Wedding, Birthday, and Special Events categories$/) do
-  FactoryGirl.create(:wedding_category)
-  FactoryGirl.create(:birthday_category)
-  FactoryGirl.create(:special_events_category)
+  @wedding_category = FactoryGirl.create(:wedding_category)
+  @birthday_category = FactoryGirl.create(:birthday_category)
+  @special_events_category = FactoryGirl.create(:special_events_category)
 end
 
 When(/^I visit the Wedding & Events page$/) do

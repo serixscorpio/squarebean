@@ -1,11 +1,15 @@
-= link_to "New faq", new_admin_faq_path
-table
-  - @faqs.each do |faq|
-    tr
-      td = faq.question
-      td = faq.answer
-      td
-        div id="faq-#{faq.id}"
-        = render partial: "update_display_order_form", locals: {faq: faq}
-      td = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
-      td = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"
+section class="admin-faq"
+  div class="row"
+    div class="small-12 large-12"
+      = link_to "New faq", new_admin_faq_path
+    div class="small-12 large-12"
+      table
+        - @faqs.each do |faq|
+          tr
+            td = faq.question
+            td = faq.answer
+            td
+              div id="faq-#{faq.id}"
+              = render partial: "update_display_order_form", locals: {faq: faq}
+            td = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
+            td = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"
