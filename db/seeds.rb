@@ -14,14 +14,15 @@ case Rails.env
 when "development"
   # create products
   product_categories.each do |product_category|
-    rand(4..8).times do
+    rand(4..8).times do |i|
       product_category.products.create(
         name: Faker::Lorem.word,
         description: Faker::Lorem.words(rand(1..2)).join(" "),
         picture: "http://placehold.it/500x500",
         is_gluten_free: [true, false].sample,
         is_dairy_free: [true, false].sample,
-        is_vegan: [true, false].sample
+        is_vegan: [true, false].sample,
+        display_order: i+1
       )
     end
   end
@@ -57,7 +58,8 @@ when "production" # production only  seed data
     picture: "http://placehold.it/500x500",
     is_gluten_free: true,
     is_dairy_free: false,
-    is_vegan: false
+    is_vegan: false,
+    display_order: 1
   )
 
   # create special items
@@ -67,7 +69,8 @@ when "production" # production only  seed data
     picture: "http://placehold.it/500x500",
     is_gluten_free: true,
     is_dairy_free: false,
-    is_vegan: true
+    is_vegan: true,
+    display_order: 1
   )
 
   # create birthday events

@@ -37,3 +37,11 @@ Feature: Admin Products
     Then I see the list of products
     And I see links to admin Product page, Event page, and FAQ page
 
+  Scenario: I can change the ordering of existing products
+    Given these products:
+      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file|order|
+      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg|1    |
+      |Muffin  |muffin.jpg    |A tasy muffin        |Special Item |Yes           |No           |No      |muffin.jpg  |2    |
+    And I visit the list of products
+    When I change the order of product "Macaroon" to "3"
+    Then the order of product "Macaroon" becomes "3"

@@ -1,8 +1,20 @@
 section class="admin-faq"
   div class="row"
-    div class="small-12 large-12"
+    div class="small-12 medium-12 columns"
       = link_to "New faq", new_admin_faq_path
-    div class="small-12 large-12"
+    - @faqs.each do |faq|
+      div class="row"
+        div class="small-12 medium-4 columns"
+          = faq.question
+        div class="small-12 medium-4 columns"
+          = faq.answer
+        div class="small-12 medium-2 columns"
+          = render partial: "admin/shared/update_display_order_form", locals: {model: faq}
+        div class="small-6 medium-1 columns"
+          = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
+        div class="small-6 medium-1 columns"
+          = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"
+    / div class="small-12 large-12"
       table
         - @faqs.each do |faq|
           tr
@@ -10,6 +22,6 @@ section class="admin-faq"
             td = faq.answer
             td
               div id="faq-#{faq.id}"
-              = render partial: "update_display_order_form", locals: {faq: faq}
+                = render partial: "update_display_order_form", locals: {faq: faq}
             td = link_to "Edit", edit_admin_faq_path(faq), id: "edit-#{faq.id}"
             td = link_to "Delete", [:admin, faq], method: :delete, id: "delete-#{faq.id}"

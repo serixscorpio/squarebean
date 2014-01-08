@@ -64,12 +64,12 @@ end
 
 Then(/^The list of products should not have "(.*?)"$/) do |product_name|
   fail("Product #{product_name} should not be found") if Product.where(name: product_name).exists? 
-  expect(page).to have_no_selector('td', text: product_name)
+  expect(page).to have_selector(:xpath, '//div[@class="flash-notice"]', text: product_name)
 end
 
 Then(/^The list of products should still have "(.*?)"$/) do |product_name|
   fail("Product #{product_name} is not found") unless Product.where(name: product_name).exists? 
-  expect(page).to have_selector('td', text: product_name)
+  expect(page).to have_selector('div', text: product_name)
 end
 
 When(/^I visit the default admin page$/) do
@@ -85,5 +85,18 @@ Then(/^I see links to admin Product page, Event page, and FAQ page$/) do
   expect(page).to have_link('Product', href: '/admin/products')
   expect(page).to have_link('Event', href: '/admin/events')
   expect(page).to have_link('FAQ', href: '/admin/faqs')
+end
+
+When(/^I change the order of product "(.*?)" to "(.*?)"$/) do |product_name, desired_order|
+  product = Product.where(name: product_name).first
+  within("//form[@id='edit_product_#{product.id}']") do
+    fill_in "product_display_order", with: desired_order
+    click_button("update")
+  end
+end
+
+Then(/^the order of product "(.*?)" becomes "(.*?)"$/) do |product_name, expected_order|
+  product = Product.where(name: product_name).first
+  fail("product's order incorrect") unless product.display_order == expected_order.to_i
 end
 

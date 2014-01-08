@@ -525,7 +525,7 @@ section.contact{
 
 }
 /********************ADMIN*********************/
-section.admin{
+section[class*='admin-']{
   form{
     label{
       color: $ivory;

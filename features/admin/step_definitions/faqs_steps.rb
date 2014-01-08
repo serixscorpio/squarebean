@@ -56,19 +56,19 @@ end
 
 Then(/^the list of FAQs should not have "(.*?)"$/) do |faq_question|
   fail("FAQ '#{faq_question}' should not be found") if Faq.where(question: faq_question).exists? 
-  expect(page).to have_no_selector('td', text: faq_question)
+  expect(page).to have_selector(:xpath, '//div[@class="flash-notice"]', text: faq_question)
 end
 
 Then(/^the list of FAQs should still have "(.*?)"$/) do |faq_question|
   fail("FAQ '#{faq_question}' is not found") unless Faq.where(question: faq_question).exists? 
-  expect(page).to have_selector('td', text: faq_question)
+  expect(page).to have_selector('div', text: faq_question)
 end
 
 When(/^I change the order of "(.*?)" to "(.*?)"$/) do |faq_question, desired_order|
   faq = Faq.where(question: faq_question).first
   within("//form[@id='edit_faq_#{faq.id}']") do
     fill_in "faq_display_order", with: desired_order
-    click_button("Update order")
+    click_button("update")
   end
 end
 
