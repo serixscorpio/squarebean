@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require foundation.min.js
 //= require jquery.easing.1.3
 //= require jquery.transit.min

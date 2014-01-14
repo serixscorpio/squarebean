@@ -4,7 +4,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def new
-    @product = Product.new
+    @product = Product.new display_order: (Product.maximum("display_order") || 0)+1
     @product_categories = ProductCategory.all
   end
 

@@ -3,12 +3,13 @@ Feature: Admin Products
     Given There are "Cake" and "Special Item" product categories
     And I am logged in as an admin
 
+  @javascript
   Scenario: I can add a new product
     Given I visit the list of products
     Then I can add:
-      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file       |
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg       |
-      |Muffin  |muffin.jpg    |A tasy muffin        |Special Item |Yes           |No           |No      |muffin.jpg         |
+      |name    |description |category     |is gluten free|is dairy free|is vegan|picture file1|picture file2|picture file3|
+      |Macaroon|A macaroon  |Special Item |Yes           |Yes          |Yes     |macaroon.jpg |macaroon2.jpg|macaroon3.jpg|
+      |Muffin  |tasty muffin|Special Item |Yes           |No           |No      |muffin.jpg   |muffin2.jpg  |muffin3.jpg  |
 
   Scenario: I can edit an existing product
     Given these products:

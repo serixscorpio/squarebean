@@ -12,6 +12,7 @@ group :test do
   gem 'database_cleaner'
   gem 'webmock'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'capybara-webkit'
 end
 
 # Gems used only for assets and not required
@@ -36,6 +37,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'faker'
+gem 'nested_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

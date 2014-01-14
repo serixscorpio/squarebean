@@ -56,3 +56,8 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# set default javascript driver for capybara
+Capybara.javascript_driver = :webkit
+
+# disable external requests while allowing localhost
+WebMock.disable_net_connect!(allow_localhost: true)

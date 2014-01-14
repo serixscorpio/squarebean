@@ -25,16 +25,23 @@ Then(/^I can add:$/) do |table|
   check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
   check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
   check('product[is_vegan]') if row['is vegan'] == 'Yes'
-  attach_file('product[picture]', File.join(Rails.root, 'features', 'images', row['picture file']))
+  #fill_in "product_display_order", with: (Product.maximum("display_order") || 0) + 1 # this should be automatically set to current max + 1
+
+  click_link('Add a picture')
+  first_picture_field = all('.fields').first
+  within(first_picture_field) do
+    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file1']))
+    fill_in "Display Order", with: 1
+  end
+
   click_button('Save')
-  fail("Product #{row['name']} is not added") unless Product.where(name: row['name']).exists? 
   expect(page).to have_content(row['name'])
   expect(page).to have_content(row['description'])
   expect(page).to have_content(row['category'])
   expect(page).to have_content('gluten free') if row['is gluten free'] == 'Yes'
   expect(page).to have_content('dairy free') if row['is dairy free'] == 'Yes'
   expect(page).to have_content('vegan') if row['is vegan'] == 'Yes'
-  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file']}\")]")
+  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file1']}\")]")
 end
 
 When(/^I select to edit the "(.*?)"$/) do |product_name|
