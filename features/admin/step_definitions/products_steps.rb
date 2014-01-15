@@ -25,13 +25,26 @@ Then(/^I can add:$/) do |table|
   check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
   check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
   check('product[is_vegan]') if row['is vegan'] == 'Yes'
-  #fill_in "product_display_order", with: (Product.maximum("display_order") || 0) + 1 # this should be automatically set to current max + 1
 
   click_link('Add a picture')
-  first_picture_field = all('.fields').first
-  within(first_picture_field) do
+  last_picture_field = all('.fields').last
+  within(last_picture_field) do
     attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file1']))
     fill_in "Display Order", with: 1
+  end
+
+  click_link('Add a picture')
+  last_picture_field = all('.fields').last
+  within(last_picture_field) do
+    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file2']))
+    fill_in "Display Order", with: 2
+  end
+
+  click_link('Add a picture')
+  last_picture_field = all('.fields').last
+  within(last_picture_field) do
+    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file3']))
+    fill_in "Display Order", with: 3
   end
 
   click_button('Save')
@@ -42,6 +55,8 @@ Then(/^I can add:$/) do |table|
   expect(page).to have_content('dairy free') if row['is dairy free'] == 'Yes'
   expect(page).to have_content('vegan') if row['is vegan'] == 'Yes'
   expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file1']}\")]")
+  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file2']}\")]")
+  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file3']}\")]")
 end
 
 When(/^I select to edit the "(.*?)"$/) do |product_name|
@@ -53,16 +68,19 @@ When(/^change the name to "(.*?)"$/) do |new_name|
 end
 
 When(/^change the picture to use "(.*?)"$/) do |new_picture|
-  attach_file('product[picture]', File.join(Rails.root, 'features', 'images', new_picture))
+  picture_field = all('.fields').first 
+  within(picture_field) do
+    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', new_picture))
+  end
   click_button('Save')
 end
 
 Then(/^its name becomes "(.*?)"$/) do |new_name|
-  @product = Product.find_by_name!(new_name)
+  expect(page).to have_content(new_name)
 end
 
 Then(/^its picture is updated to "(.*?)"$/) do |new_picture|
-  expect(@product.picture.url).to include(new_picture)
+  expect(page).to have_xpath("//img[contains(@src, \"#{new_picture}\")]")
 end
 
 When(/^I select to delete the "(.*?)"$/) do |product_name|

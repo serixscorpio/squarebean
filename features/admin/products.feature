@@ -11,11 +11,12 @@ Feature: Admin Products
       |Macaroon|A macaroon  |Special Item |Yes           |Yes          |Yes     |macaroon.jpg |macaroon2.jpg|macaroon3.jpg|
       |Muffin  |tasty muffin|Special Item |Yes           |No           |No      |muffin.jpg   |muffin2.jpg  |muffin3.jpg  |
 
+  @javascript
   Scenario: I can edit an existing product
     Given these products:
       |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file       |
       |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg       |
-      |Muffin  |muffin.jpg    |A tasy muffin        |Special Item |Yes           |No           |No      |muffin.jpg         |
+      |Muffin  |muffin.jpg    |A tasty muffin       |Special Item |Yes           |No           |No      |muffin.jpg         |
     And I visit the list of products
     When I select to edit the "Macaroon"
     And change the name to "Delicious Macaroon"

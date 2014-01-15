@@ -2,7 +2,8 @@ Given(/^these products:$/) do |table|
   # table is a Cucumber::Ast::Table
   table.hashes.each do |row|
     product_category = ProductCategory.where(name: row['category']).first
-    product_category.products.create! name: row['name'], description: row['description'], picture: File.open("features/images/#{row['picture']}")
+    product = product_category.products.create! name: row['name'], description: row['description'], picture: File.open("features/images/#{row['picture']}")
+    product.product_pictures.create! path: File.open("features/images/#{row['picture']}"), display_order: 1
   end
 end
   
