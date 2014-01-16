@@ -1,9 +1,21 @@
 Given(/^these products:$/) do |table|
   # table is a Cucumber::Ast::Table
-  table.hashes.each do |row|
+  table.hashes.each_with_index do |row, i|
     product_category = ProductCategory.where(name: row['category']).first
-    product = product_category.products.create! name: row['name'], description: row['description'], picture: File.open("features/images/#{row['picture']}")
-    product.product_pictures.create! path: File.open("features/images/#{row['picture']}"), display_order: 1
+    product = product_category.products.new do |p|
+      p.name = row['name']
+      p.description = row['description']
+      p.display_order = row['order'] || i+1
+      p.is_gluten_free = row['is_gluten_free']
+      p.is_dairy_free = row['is_dairy_free']
+      p.is_vegan = row['is_vegan']
+    end
+    product.save!
+    ['featured picture', 'picture2', 'picture3'].each_with_index do |picture, picture_order|
+      unless row[picture].nil?
+        product.product_pictures.create! path: File.open("features/images/#{row[picture]}"), display_order: picture_order+1
+      end
+    end
   end
 end
   

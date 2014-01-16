@@ -14,21 +14,52 @@ Feature: Admin Products
   @javascript
   Scenario: I can edit an existing product
     Given these products:
-      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file       |
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg       |
-      |Muffin  |muffin.jpg    |A tasty muffin       |Special Item |Yes           |No           |No      |muffin.jpg         |
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|featured picture|
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg    |
+      |Muffin  |A tasty muffin       |Special Item |Yes           |No           |No      |muffin.jpg      |
     And I visit the list of products
     When I select to edit the "Macaroon"
     And change the name to "Delicious Macaroon"
-    And change the picture to use "macaroon1.jpg"
+    And change the featured picture to use "macaroon1.jpg"
     Then its name becomes "Delicious Macaroon"
-    And its picture is updated to "macaroon1.jpg"
+    And it shows product picture(s) "macaroon1.jpg"
+
+  @javascript
+  Scenario: I can add more pictures to an existing product
+    Given these products:
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|featured picture|
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg    |
+    And I visit the list of products
+    When I select to edit the "Macaroon"
+    And add a second picture "macaroon2.jpg" to the product
+    Then it shows product picture(s) "macaroon.jpg, macaroon2.jpg"
+
+  @javascript
+  Scenario: I can remove a picture from an existing product
+    Given these products:
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|featured picture|picture2      |
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg    |macaroon2.jpg |
+    And I visit the list of products
+    When I select to edit the "Macaroon"
+    And remove the second picture from the product
+    Then it shows product picture(s) "macaroon.jpg"
+    And it doesn't show product picture(s) "macaroon2.jpg"
+
+  @javascript
+  Scenario: I can change the display order of pictures within an existing product
+    Given these products:
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|featured picture|picture2      |
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg    |macaroon2.jpg |
+    And I visit the list of products
+    When I select to edit the "Macaroon"
+    And swap the display order of the featured picture and the second picture
+    Then product picture "macaroon2.jpg" shows before "macaroon.jpg"
 
   Scenario: I can delete an existing product
     Given these products:
-      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file       |
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg       |
-      |Muffin  |muffin.jpg    |A tasy muffin        |Special Item |Yes           |No           |No      |muffin.jpg         |
+      |name    |description          |category     |featured picture|
+      |Macaroon|A delicious macaroon |Special Item |macaroon.jpg    |
+      |Muffin  |A tasty muffin       |Special Item |muffin.jpg      |
     And I visit the list of products
     When I select to delete the "Macaroon"
     Then The list of products should not have "Macaroon"
@@ -41,9 +72,9 @@ Feature: Admin Products
 
   Scenario: I can change the ordering of existing products
     Given these products:
-      |name    |picture       |description          |category     |is gluten free|is dairy free|is vegan|picture file|order|
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg|1    |
-      |Muffin  |muffin.jpg    |A tasy muffin        |Special Item |Yes           |No           |No      |muffin.jpg  |2    |
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|featured picture|order|
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |macaroon.jpg    |1    |
+      |Muffin  |A tasty muffin       |Special Item |Yes           |No           |No      |muffin.jpg      |2    |
     And I visit the list of products
     When I change the order of product "Macaroon" to "3"
     Then the order of product "Macaroon" becomes "3"

@@ -16,16 +16,19 @@ section class="admin-product"
       ' Product Display Order
     div class="small-12 medium-9 columns"
       = @product.display_order
-    div class="small-12 medium-2 columns"
+    div class="small-12 medium-12 columns"
       - if @product.is_gluten_free?
         ' gluten free
-    div class="small-12 medium-2 columns"
+    div class="small-12 medium-12 columns"
       - if @product.is_dairy_free?
         ' dairy free
-    div class="small-12 medium-2 columns"
+    div class="small-12 medium-12 columns"
       - if @product.is_vegan?
         ' vegan
-    div class="row"
-      div class="small-12 medium-8 columns"
-        - @product.product_pictures.each do |picture|
-          = image_tag(picture.path.url)
+  div class="row"
+    - @product.product_pictures.each do |picture|
+      div class="small-2 medium-2 columns"
+        | Picture 
+        = picture.display_order
+      div class="small-10 medium-8 medium-centered columns"
+        = image_tag(picture.path.url)

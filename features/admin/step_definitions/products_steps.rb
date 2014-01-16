@@ -67,7 +67,7 @@ When(/^change the name to "(.*?)"$/) do |new_name|
   fill_in('product_name', with: new_name)
 end
 
-When(/^change the picture to use "(.*?)"$/) do |new_picture|
+When(/^change the featured picture to use "(.*?)"$/) do |new_picture|
   picture_field = all('.fields').first 
   within(picture_field) do
     attach_file('Product Picture', File.join(Rails.root, 'features', 'images', new_picture))
@@ -77,10 +77,6 @@ end
 
 Then(/^its name becomes "(.*?)"$/) do |new_name|
   expect(page).to have_content(new_name)
-end
-
-Then(/^its picture is updated to "(.*?)"$/) do |new_picture|
-  expect(page).to have_xpath("//img[contains(@src, \"#{new_picture}\")]")
 end
 
 When(/^I select to delete the "(.*?)"$/) do |product_name|
@@ -123,5 +119,51 @@ end
 Then(/^the order of product "(.*?)" becomes "(.*?)"$/) do |product_name, expected_order|
   product = Product.where(name: product_name).first
   fail("product's order incorrect") unless product.display_order == expected_order.to_i
+end
+
+When(/^add a second picture "(.*?)" to the product$/) do |picture_file|
+  click_link('Add a picture')
+  last_picture_field = all('.fields').last
+  within(last_picture_field) do
+    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', picture_file))
+    fill_in "Display Order", with: 2
+  end
+  click_button('Save')
+end
+
+Then(/^it shows product picture\(s\) "(.*?)"$/) do |product_pictures|
+  product_pictures.split(', ').each do |picture|
+    expect(page).to have_xpath("//img[contains(@src, \"#{picture}\")]")
+  end
+end
+
+When(/^remove the second picture from the product$/) do
+  second_picture_field = all('.fields')[1]
+  within(second_picture_field) do
+    click_link('Remove this picture')
+  end
+  click_button('Save')
+end
+
+Then(/^it doesn't show product picture\(s\) "(.*?)"$/) do |product_pictures|
+  product_pictures.split(', ').each do |picture|
+    expect(page).to have_no_xpath("//img[contains(@src, \"#{picture}\")]")
+  end
+end
+
+When(/^swap the display order of the featured picture and the second picture$/) do
+  featured_picture_field = all('.fields').first
+  within(featured_picture_field) do
+    fill_in "Display Order", with: 2
+  end
+  second_picture_field = all('.fields')[1]
+  within(second_picture_field) do
+    fill_in "Display Order", with: 1
+  end
+  click_button('Save')
+end
+
+Then(/^product picture "(.*?)" shows before "(.*?)"$/) do |first_picture, second_picture|
+    pending # express the regexp above with the code you wish you had
 end
 

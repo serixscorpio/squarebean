@@ -9,9 +9,9 @@ Feature: Menu
     A product fall into either Special Item or Cake category
 
     Given these products:
-      |name    |picture       |description          |category     |
-      |Macaroon|macaroon.jpg  |A delicious macaroon |Special Item |
-      |Muffin  |muffin.jpg    |A delicious muffin   |Cake         |
+      |name    |description          |category     |featured picture|
+      |Macaroon|A delicious macaroon |Special Item |macaroon.jpg    |
+      |Muffin  |A delicious muffin   |Cake         |muffin.jpg      |
     When I visit the product page
     Then I see "Macaroon" in the Specialty category
     And I see "A delicious macaroon"
