@@ -1,15 +1,15 @@
 div class="large-6 medium-6 small-12 columns item-container"
   div class="item-thumbnail"
     ul class="clearing-thumbs clearing-feature" data-clearing="" 
-      li
-        a href="http://placehold.it/500x500"
-          img src="#{product.picture}"
-      li class="clearing-featured-img"
-        a href="http://placehold.it/500x500"
-          img src="#{product.picture}"
-      li
-        a href="http://placehold.it/500x500"
-          img src="#{product.picture}"
+      - product.product_pictures.each_with_index do |picture, i|
+        - if i == 1
+          li class="clearing-featured-img"
+            a href="#{picture.path}"
+              img src="#{picture.path}"
+        - else
+          li
+            a href="#{picture.path}"
+              img src="#{picture.path}"
   div class="item-detail"
     h4 = product.name
     p = product.description

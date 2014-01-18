@@ -164,6 +164,8 @@ When(/^swap the display order of the featured picture and the second picture$/) 
 end
 
 Then(/^product picture "(.*?)" shows before "(.*?)"$/) do |first_picture, second_picture|
-    pending # express the regexp above with the code you wish you had
+  images = page.all(:xpath, '//img')
+  expect(images[0]['src']).to include(first_picture)
+  expect(images[1]['src']).to include(second_picture)
 end
 
