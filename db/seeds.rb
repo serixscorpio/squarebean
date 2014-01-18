@@ -21,6 +21,7 @@ when "development"
         is_gluten_free: [true, false].sample,
         is_dairy_free: [true, false].sample,
         is_vegan: [true, false].sample,
+        price: rand(10..40),
         display_order: i+1
       )
       3.times do |j|
@@ -63,6 +64,7 @@ when "production" # production only  seed data
     is_gluten_free: true,
     is_dairy_free: false,
     is_vegan: false,
+    price: 25,
     display_order: 1
   )
   3.times do |i|
@@ -79,6 +81,7 @@ when "production" # production only  seed data
     is_gluten_free: true,
     is_dairy_free: false,
     is_vegan: true,
+    price: 30,
     display_order: 1
   )
   3.times do |i|

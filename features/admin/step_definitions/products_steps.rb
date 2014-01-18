@@ -25,6 +25,7 @@ Then(/^I can add:$/) do |table|
   check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
   check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
   check('product[is_vegan]') if row['is vegan'] == 'Yes'
+  fill_in('product_price', with: row['price'])
 
   click_link('Add a picture')
   last_picture_field = all('.fields').last
@@ -72,7 +73,6 @@ When(/^change the featured picture to use "(.*?)"$/) do |new_picture|
   within(picture_field) do
     attach_file('Product Picture', File.join(Rails.root, 'features', 'images', new_picture))
   end
-  click_button('Save')
 end
 
 Then(/^its name becomes "(.*?)"$/) do |new_name|
@@ -168,3 +168,13 @@ Then(/^product picture "(.*?)" shows before "(.*?)"$/) do |first_picture, second
   expect(images[0]['src']).to include(first_picture)
   expect(images[1]['src']).to include(second_picture)
 end
+
+When(/^change the product price to "(.*?)"$/) do |new_price|
+  fill_in('product_price', with: new_price)
+  click_button('Save')
+end
+
+Then(/^its price becomes "(.*?)"$/) do |expected_price|
+  expect(page).to have_field('product_price', with: expected_price)
+end
+

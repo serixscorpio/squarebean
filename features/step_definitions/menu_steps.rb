@@ -9,6 +9,7 @@ Given(/^these products:$/) do |table|
       p.is_gluten_free = row['is_gluten_free']
       p.is_dairy_free = row['is_dairy_free']
       p.is_vegan = row['is_vegan']
+      p.price = row['price']
     end
     product.save!
     ['featured picture', 'picture2', 'picture3'].each_with_index do |picture, picture_order|
@@ -49,6 +50,12 @@ Then(/^I see "(.*?)" is indicated as (.+)$/) do |product_name, diet_types|
     within(:xpath, "//h4[text()='#{product_name}']/..") do
       expect(page).to have_content(diet_type)
     end
+  end
+end
+
+Then(/^I see the price of "(.*?)" is "(.*?)"$/) do |product_name, price|
+  within(:xpath, "//h4[text()='#{product_name}']") do
+    expect(page).to have_selector(:xpath, '//ul[@class="price"]/li', text: price.to_s)
   end
 end
 

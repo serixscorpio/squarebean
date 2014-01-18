@@ -2,24 +2,21 @@ div class="large-6 medium-6 small-12 columns item-container"
   div class="item-thumbnail"
     ul class="clearing-thumbs clearing-feature" data-clearing="" 
       - product.product_pictures.each_with_index do |picture, i|
-        - if i == 1
+        - if i == 0
           li class="clearing-featured-img"
-            a href="#{picture.path}"
-              img src="#{picture.path}"
+            a href="#{picture.path.url}"
+              img src="#{picture.path.url}"
         - else
           li
-            a href="#{picture.path}"
-              img src="#{picture.path}"
+            a href="#{picture.path.url}"
+              img src="#{picture.path.url}"
   div class="item-detail"
     h4 = product.name
     p = product.description
     span
       ul class="note"
-        - if product.is_gluten_free?
-          li gluten free
-        - if product.is_dairy_free?
-          li dairy free
-        - if product.is_vegan?
-          li vegan
+        li = "gluten free" if product.is_gluten_free?
+        li = "dairy free" if product.is_dairy_free?
+        li = "vegan" if product.is_vegan?
       ul class="price"
-        li $30
+        li = "$#{product.price}" unless product.price.nil?
