@@ -15,15 +15,20 @@ when "development"
   # create products
   product_categories.each do |product_category|
     rand(4..8).times do |i|
-      product_category.products.create(
+      product = product_category.products.create(
         name: Faker::Lorem.word,
         description: Faker::Lorem.words(rand(1..2)).join(" "),
-        picture: "http://placehold.it/500x500",
         is_gluten_free: [true, false].sample,
         is_dairy_free: [true, false].sample,
         is_vegan: [true, false].sample,
         display_order: i+1
       )
+      3.times do |j|
+        product.product_pictures.create(
+          path: "http://placehold.it/500x500",
+          display_order: j+1
+        )
+      end
     end
   end
 
@@ -52,26 +57,36 @@ when "development"
 when "production" # production only  seed data
 
   # create cake products
-  product_categories[0].products.create(
+  cake = product_categories[0].products.create(
     name: "Muffin",
     description: "super awesome!",
-    picture: "http://placehold.it/500x500",
     is_gluten_free: true,
     is_dairy_free: false,
     is_vegan: false,
     display_order: 1
   )
+  3.times do |i|
+    cake.product_pictures.create(
+      path: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/products/cakes', '*')).sample),
+      display_order: i+1
+    )
+  end
 
   # create special items
-  product_categories[1].products.create(
+  special_item = product_categories[1].products.create(
     name: "Macaroon",
     description: "super delicious!",
-    picture: "http://placehold.it/500x500",
     is_gluten_free: true,
     is_dairy_free: false,
     is_vegan: true,
     display_order: 1
   )
+  3.times do |i|
+    special_item.product_pictures.create(
+      path: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/products/special_items', '*')).sample),
+      display_order: i+1
+    )
+  end
 
   # create birthday events
   event_categories[1].events.create(
