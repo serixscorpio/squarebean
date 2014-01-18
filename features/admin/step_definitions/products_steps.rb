@@ -48,12 +48,12 @@ Then(/^I can add:$/) do |table|
   end
 
   click_button('Save')
-  expect(page).to have_content(row['name'])
-  expect(page).to have_content(row['description'])
-  expect(page).to have_content(row['category'])
-  expect(page).to have_content('gluten free') if row['is gluten free'] == 'Yes'
-  expect(page).to have_content('dairy free') if row['is dairy free'] == 'Yes'
-  expect(page).to have_content('vegan') if row['is vegan'] == 'Yes'
+  expect(page).to have_field('product_name', with: row['name'])
+  expect(page).to have_field('product_description', with: row['description'])
+  expect(page).to have_select('product[product_category_id]', selected: row['category'])
+  expect(page).to have_checked_field('gluten free') if row['is gluten free'] == 'Yes'
+  expect(page).to have_checked_field('dairy free') if row['is dairy free'] == 'Yes'
+  expect(page).to have_checked_field('vegan') if row['is vegan'] == 'Yes'
   expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file1']}\")]")
   expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file2']}\")]")
   expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file3']}\")]")
@@ -112,7 +112,7 @@ When(/^I change the order of product "(.*?)" to "(.*?)"$/) do |product_name, des
   product = Product.where(name: product_name).first
   within("//form[@id='edit_product_#{product.id}']") do
     fill_in "product_display_order", with: desired_order
-    click_button("update")
+    click_button("update order")
   end
 end
 
@@ -168,4 +168,3 @@ Then(/^product picture "(.*?)" shows before "(.*?)"$/) do |first_picture, second
   expect(images[0]['src']).to include(first_picture)
   expect(images[1]['src']).to include(second_picture)
 end
-

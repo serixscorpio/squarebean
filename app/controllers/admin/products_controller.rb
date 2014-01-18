@@ -11,7 +11,7 @@ class Admin::ProductsController < Admin::BaseController
   def create
     @product = Product.new(params[:product])
     if @product.save
-      redirect_to admin_product_path(@product.id), notice: "Added product '#{@product.name}'"
+      redirect_to edit_admin_product_path(@product.id), notice: "Added product '#{@product.name}'"
     else
       flash[:error] = "Error creating product.  Please try again."
       render :new
@@ -26,16 +26,11 @@ class Admin::ProductsController < Admin::BaseController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
-      redirect_to admin_product_path(@product.id), notice: "Updated product '#{@product.name}'"
+      redirect_to edit_admin_product_path(@product.id), notice: "Updated product '#{@product.name}'"
     else
       flash[:error] = "Error updating product.  Please try again."
       render :edit
     end
-  end
-
-  def show
-    @product = Product.find(params[:id])
-    @product_category = @product.product_category
   end
 
   def destroy
