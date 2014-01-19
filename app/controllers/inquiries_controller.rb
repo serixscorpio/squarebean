@@ -1,4 +1,8 @@
 class InquiriesController < ApplicationController
+  def new
+    @inquiry = Inquiry.new
+  end
+
   def create
     inquiry = params[:inquiry]
     @inquiry = Inquiry.new(params[:inquiry])
@@ -11,6 +15,6 @@ class InquiriesController < ApplicationController
     else
       flash[:error] = "Email address is invalid"
     end
-    redirect_to root_path
+    redirect_to new_inquiry_path
   end
 end

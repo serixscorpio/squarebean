@@ -1,3 +1,10 @@
 = render partial: "admin/shared/navigation"
+section class="flash"
+  div class="row"
+    div class="small-12 columns"
+      div class="flash"
+        = flash[:notice] if flash[:notice]
+        = flash[:alert] if flash[:alert]
+        = flash[:error] if flash[:error]
 = inside_layout 'application' do
   = yield

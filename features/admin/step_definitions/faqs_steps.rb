@@ -56,7 +56,7 @@ end
 
 Then(/^the list of FAQs should not have "(.*?)"$/) do |faq_question|
   fail("FAQ '#{faq_question}' should not be found") if Faq.where(question: faq_question).exists? 
-  expect(page).to have_selector(:xpath, '//div[@class="flash-notice"]', text: faq_question)
+  expect(page).to have_selector(:xpath, '//div[@class="flash"]', text: faq_question)
 end
 
 Then(/^the list of FAQs should still have "(.*?)"$/) do |faq_question|
