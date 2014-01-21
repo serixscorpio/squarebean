@@ -18,3 +18,6 @@
 //= require jquery.transit.min
 //= require main
 $(document).foundation();
+$(document).ajaxStart(function() {
+  $(".js-inquiry-response").text("Sending your message, please wait");
+});

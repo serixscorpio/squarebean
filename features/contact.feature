@@ -2,6 +2,7 @@ Feature: Contact Square Bean
   This is the contact page of the Square Bean website
   Visitors can submit messages to contact Square Bean
 
+  @javascript
   Scenario: I can contact Square Bean
     Given I have valid email address "serixscorpio@gmail.com"
     And My name is "Eric Chiang"
@@ -12,6 +13,7 @@ Feature: Contact Square Bean
     And an email is sent from my email address to Square Bean
     And a confirmation email is sent from Square Bean to my email address
 
+  @javascript
   Scenario: I cannot contact Square Bean using an invalid email address
     Given I have invalid email address "eric.chiang@com"
     And My name is "Eric Chiang"

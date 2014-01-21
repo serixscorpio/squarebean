@@ -1,10 +1,3 @@
-section class="flash"
-  div class="row"
-    div class="small-12 columns"
-      div class="flash"
-        = flash[:notice] if flash[:notice]
-        = flash[:alert] if flash[:alert]
-        = flash[:error] if flash[:error]
 section class="contact"
   span
     div class="row"
@@ -16,5 +9,6 @@ section class="contact"
         li visit our facebok
         li 714 756 1268
         li squarebean@gmail.com
-  div class="row"
-    = render partial: 'inquiries/form', locals: { inquiry: @inquiry }
+  div class="row" 
+    div class="small-12 columns"
+      = render partial: 'inquiries/form', locals: { inquiry: @inquiry }
