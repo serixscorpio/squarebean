@@ -40,3 +40,12 @@ Feature: Admin Events
     When I visit the admin event page
     Then I see the list of events 
     And I see links to admin Product page, Event page, and FAQ page
+
+  Scenario: I can change the ordering of existing events
+    Given the Birthday category has:
+      | event title       | product highlighted| description                      | more details     | picture               |display order|
+      | Emily's 66th day  | Tropical Baby Cake | Pina coladas with toasted coconut| link to facebook | emily_66th_day.jpg    |1            |
+      | Vanessa's Birthday| Chocolate Mint Cake| Cravings for chocolate with mint | link to facebook | vanessa_birthday.jpg  |2            |
+    And I visit the list of events
+    When I change the display order of event "Emily's 66th day" to "3"
+    Then the display order of event "Emily's 66th day" becomes "3"

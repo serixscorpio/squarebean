@@ -5,8 +5,8 @@ product_categories = [
   ProductCategory.create(name: 'Cake'),
   ProductCategory.create(name: 'Special Item') ]
 event_categories = [
-  EventCategory.create(name: 'Wedding'),
   EventCategory.create(name: 'Birthday'),
+  EventCategory.create(name: 'Wedding'),
   EventCategory.create(name: 'Special Events')
 ]
 
@@ -35,13 +35,14 @@ when "development"
 
   # create events
   event_categories.each do |event_category|
-    rand(2..5).times do
+    rand(2..5).times do |i|
       event_category.events.create(
         name: Faker::Lorem.word,
         highlight: Faker::Lorem.words(rand(1..2)).join(" "),
         description: Faker::Lorem.words(rand(1..2)).join(" "),
         picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
-        more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037"
+        more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+        display_order: i+1
       )
     end
   end
@@ -92,12 +93,57 @@ when "production" # production only  seed data
   end
 
   # create birthday events
-  event_categories[1].events.create(
+  event_categories[0].events.create(
     name: "Emily's 66th day",
     highlight: "Tropical Baby Cake",
     description: "Pina coladas with toasted coconut",
     picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
-    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037"
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 1
+  )
+  event_categories[0].events.create(
+    name: "Vanessa's Birthday",
+    highlight: "Chocolate Mint Cake",
+    description: "Cravings for chocolate and mint",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 2
+  )
+
+  # create wedding events
+  event_categories[1].events.create(
+    name: "Amy's Wedding",
+    highlight: "Multi Layer Lava Cake",
+    description: "Passion fruit multi-layer lava cake",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 1
+  )
+  event_categories[1].events.create(
+    name: "Hawaiian Beachside Wedding",
+    highlight: "Snow white cake",
+    description: "Snow white cake accented with cherries",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 2 
+  )
+  
+  # create special events
+  event_categories[2].events.create(
+    name: "Charlie's full month celebration",
+    highlight: "Variety goodies",
+    description: "Belgian waffle and cake",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 1
+  )
+  event_categories[2].events.create(
+    name: "Aaron's graduation",
+    highlight: "Variety goodies",
+    description: "Pecan pie and assorted cookies",
+    picture: File.open(Dir.glob(File.join(Rails.root, 'app/assets/images/events', '*')).sample),
+    more_details: "https://www.facebook.com/pages/Square-Bean-%E6%96%B9%E8%87%89%E8%8D%B3%E8%8D%B3/229893950400037",
+    display_order: 2 
   )
 
   # create faqs

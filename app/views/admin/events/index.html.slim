@@ -1,8 +1,22 @@
 section class="admin-event"
   div class="row"
-    div class="small-12 large-6"
+    div class="small-12 large-6 columns"
       = link_to "New event", new_admin_event_path
-    div class="small-12 large-6"
+  - @event_categories.each do |event_category|
+    div class="row"
+      div class="small-12 columns"
+        h2 class=event_category.name.downcase.tr(' ', '_')
+          = event_category.name
+    - event_category.events.each do |event|
+      div class="row"
+        div class="small-12 medium-8 columns"
+          = link_to event.name, edit_admin_event_path(event.id), id: "edit-#{event.id}"
+        div class="small-12 medium-3 columns"
+          = render partial: "admin/shared/update_display_order_form", locals: {model: event}
+        div class="small-6 medium-1 columns"
+          = link_to "delete", [:admin, event], method: :delete, id: "delete-#{event.id}"
+
+    / div class="small-12 large-6"
       - @event_categories.each do |event_category|
         h2 class=event_category.name.downcase.tr(' ', '_')
           = event_category.name

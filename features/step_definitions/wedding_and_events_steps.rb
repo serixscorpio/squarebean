@@ -21,7 +21,14 @@ end
 Given(/^the Birthday category has:$/) do |table|
   birthday_category = EventCategory.where(name: "Birthday").first
   table.hashes.each do |row|
-    birthday_category.events.create! name: row['event title'], highlight: row['product highlighted'], description: row['description'], more_details: row['more details'], picture: File.open("features/images/#{row['picture']}")
+    birthday_category.events.create! do |e|
+      e.name = row['event title']
+      e.highlight = row['product highlighted']
+      e.description = row['description']
+      e.more_details = row['more details']
+      e.picture = File.open("features/images/#{row['picture']}")
+      e.display_order = row['display_order']
+    end 
   end
 end
   
