@@ -19,11 +19,11 @@ Then(/^The birthday events is stored$/) do
 end
 
 Then(/^I see the details of the birthday event I just entered$/) do
-  expect(page).to have_content(@input['event title'])
-  expect(page).to have_content(@input['product highlighted'])
-  expect(page).to have_content(@input['description'])
-  expect(page).to have_content(@input['more details'])
-  expect(page).to have_content("Birthday")
+  expect(page).to have_field 'event_name', with: @input['event title']
+  expect(page).to have_select 'event_event_category_id', selected: 'Birthday'
+  expect(page).to have_field 'event_highlight', with: @input['product highlighted']
+  expect(page).to have_field 'event_description', with: @input['description']
+  expect(page).to have_field 'event_more_details', with: @input['more details']
   expect(page).to have_xpath("//img[contains(@src, \"#{@input['picture']}\")]")
 end
 

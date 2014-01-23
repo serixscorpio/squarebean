@@ -11,7 +11,7 @@ class Admin::EventsController < Admin::BaseController
   def create
     @event = Event.new(params[:event])
     if @event.save 
-      redirect_to [:admin, @event], notice: "Added event '#{@event.name}'"
+      redirect_to edit_admin_event_path(@event.id), notice: "Added event '#{@event.name}'"
     else
       flash[:error] = "Cannot create new event.  Please try again"
       render :new
@@ -26,17 +26,12 @@ class Admin::EventsController < Admin::BaseController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to [:admin, @event], notice: "Updated event '#{@event.name}'"
+      redirect_to edit_admin_event_path(@event.id), notice: "Updated event '#{@event.name}'"
     else
       flash[:error] = "Cannot update event.  Please try again"
       render :edit
     end
   end 
-
-  def show
-    @event = Event.find(params[:id])
-    @category_name = @event.event_category.name
-  end
 
   def destroy
     @event = Event.find(params[:id])

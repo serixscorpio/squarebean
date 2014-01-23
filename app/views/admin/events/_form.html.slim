@@ -21,5 +21,9 @@ section class="admin-form"
         = f.text_area :more_details
       div class="small-12 medium-6 columns"
         = f.file_field :picture
+        - if f.object.picture.url.nil?
+          = image_tag("http://placehold.it/500x200")
+        - else
+          = image_tag(f.object.picture.url)
       div class="small-12 medium-6 columns"
         = f.submit "Save"
