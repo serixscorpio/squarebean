@@ -49,3 +49,17 @@ Feature: Admin Events
     And I visit the list of events
     When I change the display order of event "Emily's 66th day" to "3"
     Then the display order of event "Emily's 66th day" becomes "3"
+
+  Scenario: When I add a new event without specifying the display order, it defaults to display last
+    Given the Birthday category has:
+      | event title       | product highlighted| description                      | more details     | picture               |display order|
+      | Emily's 66th day  | Tropical Baby Cake | Pina coladas with toasted coconut| link to facebook | emily_66th_day.jpg    |1            |
+      | Vanessa's Birthday| Chocolate Mint Cake| Cravings for chocolate with mint | link to facebook | vanessa_birthday.jpg  |2            |
+    And I visit the list of events
+    When I enter birthday event:
+      | event title         | Aaron's Birthday                  |
+      | product highlighted | Strawberry Cake                   |
+      | description         | Simple Strawberry Cake            |
+      | more details        | link to facebook                  |
+      | picture             | emily_66th_day.jpg                |
+    Then the display order of event "Aaron's Birthday" becomes "3"

@@ -27,7 +27,7 @@ Given(/^the Birthday category has:$/) do |table|
       e.description = row['description']
       e.more_details = row['more details']
       e.picture = File.open("features/images/#{row['picture']}")
-      e.display_order = row['display_order']
+      e.display_order = row['display order']
     end 
   end
 end

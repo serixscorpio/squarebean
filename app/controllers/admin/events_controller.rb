@@ -4,7 +4,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def new
-    @event = Event.new
+    @event= Event.new display_order: (Event.maximum("display_order") || 0)+1
     @event_categories = EventCategory.all
   end
 
