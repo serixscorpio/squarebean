@@ -1,5 +1,6 @@
 section class="admin-form"
   = nested_form_for [:admin, product] do |f|
+    = render partial: "admin/shared/form_error", locals: { form_input: product }
     div class="row"
       div class="small-12 medium-6 columns"
         = f.label :name, "Product name"

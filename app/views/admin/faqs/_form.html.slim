@@ -1,5 +1,6 @@
 section class="admin-form"
   = form_for [:admin, faq] do |f|
+    = render partial: "admin/shared/form_error", locals: { form_input: faq }
     div class="row"
       div class="small-12 large-6"
         = f.label :question

@@ -14,6 +14,7 @@ class Admin::EventsController < Admin::BaseController
       redirect_to edit_admin_event_path(@event.id), notice: "Added event '#{@event.name}'"
     else
       flash[:error] = "Cannot create new event.  Please try again"
+      @event_categories = EventCategory.all
       render :new
     end
   end
@@ -29,6 +30,7 @@ class Admin::EventsController < Admin::BaseController
       redirect_to edit_admin_event_path(@event.id), notice: "Updated event '#{@event.name}'"
     else
       flash[:error] = "Cannot update event.  Please try again"
+      @event_categories = EventCategory.all
       render :edit
     end
   end 

@@ -1,5 +1,6 @@
 section class="admin-form"
   = form_for [:admin, event] do |f|
+    = render partial: "admin/shared/form_error", locals: { form_input: event }
     div class="row"
       div class="small-12 medium-6 columns"
         = f.label :name, "Event Name"
@@ -20,6 +21,7 @@ section class="admin-form"
         = f.label :more_details, "Event Details"
         = f.text_area :more_details
       div class="small-12 medium-6 columns"
+        = f.label :picture, "Event Picture"
         = f.file_field :picture
         - if f.object.picture.url.nil?
           = image_tag("http://placehold.it/500x200")

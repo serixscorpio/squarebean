@@ -14,6 +14,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to edit_admin_product_path(@product.id), notice: "Added product '#{@product.name}'"
     else
       flash[:error] = "Error creating product.  Please try again."
+      @product_categories = ProductCategory.all
       render :new
     end
   end
@@ -29,6 +30,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to edit_admin_product_path(@product.id), notice: "Updated product '#{@product.name}'"
     else
       flash[:error] = "Error updating product.  Please try again."
+      @product_categories = ProductCategory.all
       render :edit
     end
   end
