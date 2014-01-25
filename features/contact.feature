@@ -4,7 +4,7 @@ Feature: Contact Square Bean
 
   @javascript
   Scenario: I can contact Square Bean
-    Given I have valid email address "serixscorpio@gmail.com"
+    Given I have valid email address "example@example.com"
     And My name is "Eric Chiang"
     And I have inquiry "Do you make taro cakes?"
     When I am at the contact page
@@ -15,7 +15,7 @@ Feature: Contact Square Bean
 
   @javascript
   Scenario: I cannot contact Square Bean using an invalid email address
-    Given I have invalid email address "eric.chiang@com"
+    Given I have invalid email address "example@com"
     And My name is "Eric Chiang"
     And I have inquiry "Do you make taro cakes?"
     When I am at the contact page

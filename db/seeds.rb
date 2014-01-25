@@ -56,6 +56,13 @@ when "development"
     )
   end
 
+  # create admin user
+  User.create(
+    email: ENV["ADMIN_EMAIL"].dup,
+    password: ENV["ADMIN_PASSWORD"].dup,
+    password_confirmation: ENV["ADMIN_PASSWORD"].dup
+  )
+
 when "production" # production only  seed data
 
   # create cake products

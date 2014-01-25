@@ -9,9 +9,7 @@ Given(/^I am logged in as an admin$/) do
   fill_in('user_email', with: @admin.email)
   fill_in('user_password', with: @admin.password)
   click_button('Sign in')
-  # TODO: A successful log in should bring user to the admin root page instead
-  # of the normal root page.  Configure/tweak devise to behave this way
-  #expect(page).to have_content('Signed in successfully')
+  expect(page).to have_content('Signed in successfully')
 end
 
 Given(/^I visit the list of products$/) do

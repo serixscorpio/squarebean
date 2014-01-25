@@ -1,8 +1,13 @@
 section class="admin-navigation"
   div class="row"
-    div class="small-12 large-6"
+    div class="small-12 medium-9 columns"
       = link_to "Product", admin_products_path
       '  
       = link_to "Event", admin_events_path
       '  
       = link_to "FAQ", admin_faqs_path
+    div class="small-12 medium-3 columns"
+      = link_to "Admin details", edit_user_registration_path
+      '  |
+      = link_to "Sign out", destroy_user_session_path, method: :delete
+

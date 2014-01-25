@@ -31,14 +31,14 @@ end
 Then(/^an email is sent from my email address to Square Bean$/) do
   @email = ActionMailer::Base.deliveries.first
   expect(@email.from).to eq([@email_address])
-  expect(@email.to).to eq(["serixscorpio@gmail.com"])
+  expect(@email.to).to eq([ENV["CONTACT_EMAIL"]])
   expect(@email.subject).to include("Inquiry from #{@visitor_name}")
   expect(@email.body).to include(@inquiry_content)
 end
 
 Then(/^a confirmation email is sent from Square Bean to my email address$/) do
   @email = ActionMailer::Base.deliveries[1]
-  expect(@email.from).to eq(["serixscorpio@gmail.com"])
+  expect(@email.from).to eq([ENV["CONTACT_EMAIL"]])
   expect(@email.to).to eq([@email_address])
   expect(@email.subject).to eq("Thank you! Square Bean received your inquiry")
   expect(@email.body).to include("We'll get back to you shortly")      

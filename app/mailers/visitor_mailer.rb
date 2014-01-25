@@ -1,5 +1,5 @@
 class VisitorMailer < ActionMailer::Base
-  default from: "serixscorpio@gmail.com", to: "serixscorpio@gmail.com"
+  default from: ENV['CONTACT_EMAIL'], to: ENV['CONTACT_EMAIL']
 
   def inquire(inquiry)
     @inquiry = inquiry
