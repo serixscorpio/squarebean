@@ -6,9 +6,9 @@ section class="contact"
   div class="row"
     div class="large-12 columns"
       ul class="contact-info"
-        li visit our facebok
+        li visit our facebook
         li 714 756 1268
-        li squarebean@gmail.com
+        li = ENV['DISPLAY_CONTACT_EMAIL']
   div class="row" 
     div class="small-12 columns"
       = render partial: 'inquiries/form', locals: { inquiry: @inquiry }
