@@ -29,4 +29,6 @@ test:
 production:
   SECRET_TOKEN:
   AWS_BUCKET:
+  ADMIN_EMAIL:
+  ADMIN_PASSWORD:
   CONTACT_EMAIL:
