@@ -4,12 +4,12 @@ div class="large-6 medium-6 small-12 columns item-container"
       - product.product_pictures.each_with_index do |picture, i|
         - if i == 0
           li class="clearing-featured-img"
-            a href="#{picture.path.url}"
-              img src="#{picture.path.url}"
+            a href="#{picture.path.product_carousel.url}"
+              img src="#{picture.path.product_featured.url}"
         - else
           li
-            a href="#{picture.path.url}"
-              img src="#{picture.path.url}"
+            a href="#{picture.path.product_carousel.url}"
+              img src="#{picture.path.product_featured.url}"
   div class="item-detail"
     h4 = product.name
     p = product.description

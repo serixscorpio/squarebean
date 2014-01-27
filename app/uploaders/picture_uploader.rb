@@ -25,7 +25,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fill => [980, 450]
+  process :resize_to_fit => [980, 450]
   #
   # def scale(width, height)
   #   # do something
@@ -35,6 +35,17 @@ class PictureUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+  version :product_carousel do
+    process :resize_to_fit => [980, 450]
+  end
+
+  version :product_featured do
+    process :resize_to_fill => [180, 180]
+  end
+
+  version :event_carousel do
+    process :resize_to_fill => [980, 450]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
