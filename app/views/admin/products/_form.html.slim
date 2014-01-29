@@ -43,6 +43,7 @@ section class="admin-form"
               = sub_f.label :display_order, "Display Order"
               = sub_f.number_field :display_order, min: 1, step: 1
               = sub_f.link_to_remove "Remove this picture"
+              = sub_f.check_box :remove_path, {style: 'visibility: hidden'}
         = f.link_to_add "Add a picture", :product_pictures
     div class="row"
       div class="small-12 medium-12 columns"

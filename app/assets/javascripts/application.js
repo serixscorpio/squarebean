@@ -21,3 +21,8 @@ $(document).foundation();
 $(document).ajaxStart(function() {
   $(".js-inquiry-response").text("Sending your message, please wait");
 });
+$(document).on('nested:fieldRemoved', function(event){
+  var field = event.field;
+  var checkbox = field.find("[id*='remove_path'],[type='checkbox']");
+  checkbox.attr('checked', true);
+});
