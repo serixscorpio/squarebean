@@ -61,7 +61,8 @@ Then(/^I can add:$/) do |table|
 end
 
 When(/^I select to edit the "(.*?)"$/) do |product_name|
-  click_link("edit-#{product_name}")
+  product = Product.where(name: product_name).first
+  click_link("edit-#{product.id}")
 end
 
 When(/^change the name to "(.*?)"$/) do |new_name|
@@ -80,7 +81,8 @@ Then(/^its name becomes "(.*?)"$/) do |new_name|
 end
 
 When(/^I select to delete the "(.*?)"$/) do |product_name|
-  click_link("delete-#{product_name}")
+  product = Product.where(name: product_name).first
+  click_link("delete-#{product.id}")
 end
 
 Then(/^The list of products should not have "(.*?)"$/) do |product_name|
