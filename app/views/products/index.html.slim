@@ -4,9 +4,6 @@ section class="menu"
       div class="large-2 small-2 columns"
         h1 MENU
       div class="large-5 small-5 columns"
-        ul
-          li cake
-          li special items
       div class="large-5 small-5 columns"
         a download PDF
   div class="row tier"
@@ -21,7 +18,7 @@ section class="menu"
   div class="row tier"
     div class="large-12 columns"
       div class="menu-title"
-        h2 Special Item
+        h2 Special Items
     = @special_items.each_slice(2) do |special_item_row|
       div class="row"
         = render partial: "products/product_detail", locals: { product: special_item_row[0] }
