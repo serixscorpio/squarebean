@@ -33,7 +33,7 @@ Then(/^I see a picture of a macaroon$/) do
 end
 
 Then(/^I see "(.*?)" in the Specialty category$/) do |product_name|
-  within(:xpath, "//h2[text()='Special Item']/../../..") do
+  within(:xpath, "//h2[text()='Special Items']/../../..") do
     expect(page).to have_content(product_name)
   end
 end

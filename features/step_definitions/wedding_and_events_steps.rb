@@ -40,6 +40,6 @@ Then(/^I can go through the content of each Birthday event$/) do
     expect(page).to have_content(birthday_event.description)
     #expect(page).to have_content(birthday_event.more_details) # TODO: clarify
     # how more details is stored, should it be a url?
-    expect(page).to have_xpath("//img[contains(@src, \"#{birthday_event.picture}\")]")
+    expect(page).to have_xpath("//img[contains(@src, '#{birthday_event.picture.event_carousel}')]")
   end
 end

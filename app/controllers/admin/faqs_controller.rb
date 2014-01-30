@@ -12,7 +12,7 @@ class Admin::FaqsController < Admin::BaseController
   def create
     @faq = Faq.new(params[:faq])
     if @faq.save 
-      redirect_to [:admin, @faq], notice: "Added new FAQ"
+      redirect_to edit_admin_faq_path(@faq.id), notice: "Added new FAQ"
     else
       flash[:error] = "Cannot create new FAQ.  Please try again"
       render :new
@@ -37,7 +37,7 @@ class Admin::FaqsController < Admin::BaseController
     end
 
     respond_with(@faq) do |f|
-      f.html { redirect_to [:admin, @faq], notice: "updated FAQ" }
+      f.html { redirect_to edit_admin_faq_path(@faq.id), notice: "updated FAQ" }
       f.js { flash.now[:notice] = "updated FAQ '#{@faq.question}'"}
     end
   end
