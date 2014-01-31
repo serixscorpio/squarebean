@@ -17,47 +17,52 @@ Given(/^I visit the list of products$/) do
 end
 
 Then(/^I can add:$/) do |table|
-  row = table.hashes.first 
-  click_link('New Product')
-  fill_in('product_name', with: row['name'])
-  fill_in('product_description', with: row['description'])
-  select(row['category'], from: 'product[product_category_id]')
-  check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
-  check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
-  check('product[is_vegan]') if row['is vegan'] == 'Yes'
-  fill_in('product_price', with: row['price'])
+  #row = table.hashes.first 
+  table.hashes.each do |row|
+    click_link('New Product')
+    fill_in('product_name', with: row['name'])
+    fill_in('product_description', with: row['description'])
+    select(row['category'], from: 'product[product_category_id]')
+    check('product[is_gluten_free]') if row['is gluten free'] == 'Yes'
+    check('product[is_dairy_free]') if row['is dairy free'] == 'Yes'
+    check('product[is_vegan]') if row['is vegan'] == 'Yes'
+    fill_in('product_unit_quantity', with: row['unit_quantity'])
+    fill_in('product_price', with: row['price'])
 
-  click_link('Add a picture')
-  last_picture_field = all('.fields').last
-  within(last_picture_field) do
-    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file1']))
-    fill_in "Display Order", with: 1
+    click_link('Add a picture')
+    last_picture_field = all('.fields').last
+    within(last_picture_field) do
+      attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file1']))
+      fill_in "Display Order", with: 1
+    end
+
+    click_link('Add a picture')
+    last_picture_field = all('.fields').last
+    within(last_picture_field) do
+      attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file2']))
+      fill_in "Display Order", with: 2
+    end
+
+    click_link('Add a picture')
+    last_picture_field = all('.fields').last
+    within(last_picture_field) do
+      attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file3']))
+      fill_in "Display Order", with: 3
+    end
+
+    click_button('Save')
+    expect(page).to have_field('product_name', with: row['name'])
+    expect(page).to have_field('product_description', with: row['description'])
+    expect(page).to have_select('product[product_category_id]', selected: row['category'])
+    expect(page).to have_checked_field('gluten free') if row['is gluten free'] == 'Yes'
+    expect(page).to have_checked_field('dairy free') if row['is dairy free'] == 'Yes'
+    expect(page).to have_checked_field('vegan') if row['is vegan'] == 'Yes'
+    expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file1']}\")]")
+    expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file2']}\")]")
+    expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file3']}\")]")
+
+    visit admin_products_path # this is needed because edit view does not have link to New Product
   end
-
-  click_link('Add a picture')
-  last_picture_field = all('.fields').last
-  within(last_picture_field) do
-    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file2']))
-    fill_in "Display Order", with: 2
-  end
-
-  click_link('Add a picture')
-  last_picture_field = all('.fields').last
-  within(last_picture_field) do
-    attach_file('Product Picture', File.join(Rails.root, 'features', 'images', row['picture file3']))
-    fill_in "Display Order", with: 3
-  end
-
-  click_button('Save')
-  expect(page).to have_field('product_name', with: row['name'])
-  expect(page).to have_field('product_description', with: row['description'])
-  expect(page).to have_select('product[product_category_id]', selected: row['category'])
-  expect(page).to have_checked_field('gluten free') if row['is gluten free'] == 'Yes'
-  expect(page).to have_checked_field('dairy free') if row['is dairy free'] == 'Yes'
-  expect(page).to have_checked_field('vegan') if row['is vegan'] == 'Yes'
-  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file1']}\")]")
-  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file2']}\")]")
-  expect(page).to have_xpath("//img[contains(@src, \"#{row['picture file3']}\")]")
 end
 
 When(/^I select to edit the "(.*?)"$/) do |product_name|
@@ -178,5 +183,13 @@ end
 
 Then(/^its price becomes "(.*?)"$/) do |expected_price|
   expect(page).to have_field('product_price', with: expected_price)
+end
+
+When(/^change the unit quantity to "(.*?)"$/) do |new_unit_quantity|
+  fill_in('product_unit_quantity', with: new_unit_quantity)
+end
+
+Then(/^its unit quantity becomes "(.*?)"$/) do |expected_unit_quantity|
+  expect(page).to have_field('product_unit_quantity', with: expected_unit_quantity)
 end
 

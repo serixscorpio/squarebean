@@ -22,6 +22,7 @@ when "development"
         is_dairy_free: [true, false].sample,
         is_vegan: [true, false].sample,
         price: rand(10..40),
+        unit_quantity: ["a dozen", "\u00BD dozen", "8\"", ""].sample, # todo, enable unicode input
         display_order: i+1
       )
       3.times do |j|
@@ -73,6 +74,7 @@ when "production" # production only  seed data
     is_dairy_free: false,
     is_vegan: false,
     price: 25,
+    unit_quantity: "a dozen",
     display_order: 1
   )
   3.times do |i|
@@ -90,6 +92,7 @@ when "production" # production only  seed data
     is_dairy_free: false,
     is_vegan: true,
     price: 30,
+    unit_quantity: "\u00BD dozen",  # TODO: enable unicode input
     display_order: 1
   )
   3.times do |i|

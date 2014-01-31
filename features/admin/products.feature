@@ -7,24 +7,26 @@ Feature: Admin Products
   Scenario: I can add a new product
     Given I visit the list of products
     Then I can add:
-      |name    |description |category     |is gluten free|is dairy free|is vegan|price|picture file1|picture file2|picture file3|
-      |Macaroon|A macaroon  |Special Item |Yes           |Yes          |Yes     |30   |macaroon.jpg |macaroon2.jpg|macaroon3.jpg|
-      |Muffin  |tasty muffin|Special Item |Yes           |No           |No      |25   |muffin.jpg   |muffin2.jpg  |muffin3.jpg  |
+      |name    |description |category     |is gluten free|is dairy free|is vegan|unit quantity|price|picture file1|picture file2|picture file3|
+      |Macaroon|A macaroon  |Special Item |Yes           |Yes          |Yes     |half dozen   |30   |macaroon.jpg |macaroon2.jpg|macaroon3.jpg|
+      |Muffin  |tasty muffin|Special Item |Yes           |No           |No      |a dozen      |25   |muffin.jpg   |muffin.jpg   |muffin.jpg   |
 
   @javascript
   Scenario: I can edit an existing product
     Given these products:
-      |name    |description          |category     |is gluten free|is dairy free|is vegan|price|featured picture|
-      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |30   |macaroon.jpg    |
-      |Muffin  |A tasty muffin       |Special Item |Yes           |No           |No      |25   |muffin.jpg      |
+      |name    |description          |category     |is gluten free|is dairy free|is vegan|unit quantity|price|featured picture|
+      |Macaroon|A delicious macaroon |Special Item |Yes           |Yes          |Yes     |half dozen   |30   |macaroon.jpg    |
+      |Muffin  |A tasty muffin       |Special Item |Yes           |No           |No      |a dozen      |25   |muffin.jpg      |
     And I visit the list of products
     When I select to edit the "Macaroon"
     And change the name to "Delicious Macaroon"
     And change the featured picture to use "macaroon1.jpg"
     And change the product price to "35"
+    And change the unit quantity to "two dozens"
     Then its name becomes "Delicious Macaroon"
     And it shows product picture(s) "macaroon1.jpg"
     And its price becomes "35"
+    And its unit quantity becomes "two dozens"
 
   @javascript
   Scenario: I can add more pictures to an existing product

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140122123926) do
+ActiveRecord::Schema.define(:version => 20140131132055) do
 
   create_table "event_categories", :force => true do |t|
     t.string   "name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20140122123926) do
     t.boolean  "is_vegan"
     t.integer  "display_order"
     t.integer  "price"
+    t.string   "unit_quantity"
   end
 
   add_index "products", ["product_category_id"], :name => "index_products_on_product_category_id"
