@@ -38,6 +38,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'faker'
 gem 'nested_form'
+gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
