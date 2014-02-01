@@ -4,4 +4,8 @@ class Product < ActiveRecord::Base
   default_scope order('display_order asc')
   has_many :product_pictures
   accepts_nested_attributes_for :product_pictures, allow_destroy: true
+  validates :name, presence: true, uniqueness: true
+  validates_associated :product_category
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :display_order, numericality: { only_integer: true }
 end

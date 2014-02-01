@@ -39,7 +39,11 @@ Then(/^I see "(.*?)" in the Specialty category$/) do |product_name|
 end
 
 Given(/^a (.+) "(.*?)"$/) do |diet_types, product_name|
-  @product = ProductCategory.find(1).products.create! name: product_name
+  @product = ProductCategory.find(1).products.create! do |p|
+    p.name = product_name
+    p.display_order = 1
+    p.price = 30
+  end
   diet_types.split(', ').each do |diet_type|
     @product.update_attribute(diet_type.gsub(" ", "_").prepend("is_").to_sym, true)
   end
