@@ -500,11 +500,11 @@ section.contact{
 		    transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
 		    width: 100%;
 		}
-
-		a.submit img{
-			margin-top: 10px;
-
-		}
+    input.submit {
+      margin-top: 10px;
+      width: auto;
+      border-bottom: 0px solid white;
+    }
 
 		:-webkit-input-placeholder {
 	  		@include placehoder-style;
