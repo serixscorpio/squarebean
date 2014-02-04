@@ -273,6 +273,8 @@ section.menu{
 		ul li, a{
 			padding-top: 25px;
 			display: inline-block;
+      color: white;
+      &:hover{color:$gray;}
 		}
 		ul li{ padding-left: 15px;}
 		a{float: right;}
@@ -287,27 +289,40 @@ section.menu{
 	    margin-right: 0px;
    }
    .tier{
-   	margin-bottom: 30px;
+   	padding-bottom: 30px;
 	   	&:last-child{
-	   		margin-bottom: 60px;
+	   		padding-bottom: 60px;
 	   	}
    }
    .item-container{ 
    	margin-top: 15px;
+    height: 210px;
      .item-thumbnail{
      	float: left;
-     	.clearing-featured-img img{width:180px; height:180px;}
+     	width:180px;
+      height:180px;
      }
      .item-detail{
      	float: left;
      	margin-left: 10px;
       width: 50%;
-     	h4{margin: 0;}
-
+     	h4{
+        font-size: 15px;
+        line-height: 17px;
+        margin: 0 0 5px -1px;
+        color:$orange;
+      }
+      p{
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: none;
+        letter-spacing: 0.05em;
+      }
      	span{
      		position: absolute; 
      		bottom: 0px; 
-     		width: 190px;
+        left: 15px;
+     		width: 94%;
      		border-bottom: 1px solid $black;
      		
      		ul{

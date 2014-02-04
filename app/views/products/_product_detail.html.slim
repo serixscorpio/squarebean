@@ -15,8 +15,10 @@ div class="large-6 medium-6 small-12 columns item-container"
     p = product.description
     span
       ul class="note"
-        li = "gluten free" if product.is_gluten_free?
-        li = "dairy free" if product.is_dairy_free?
-        li = "vegan" if product.is_vegan?
+        - diet = []
+        - diet << "gluten free" if product.is_gluten_free?
+        - diet << "dairy free" if product.is_dairy_free?
+        - diet << "vegan" if product.is_vegan?
+        li = diet.join(',')
       ul class="price"
         li = "#{product.unit_quantity} $#{product.price}" unless product.price.nil?

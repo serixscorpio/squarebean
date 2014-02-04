@@ -80,6 +80,7 @@ $global-radius:5px;
 		position: absolute;
 		top: 0px;
 		.toggle{
+      color: white;
 			width: 40px;
 			height: 24px;
 			position: absolute;
@@ -95,7 +96,7 @@ $global-radius:5px;
 		}
 		ul.mobile_topmenu{
 			position: relative;
-			top: 80px;
+			top: 100px;
 			margin: 0; padding: 0;
 			width: 100%;
 			height: 160px;
@@ -103,8 +104,8 @@ $global-radius:5px;
 			text-transform: uppercase;
 			color: white;
 			font-size: 12px;
-			border-top: 1px solid $light_gray;
-			border-left: 1px solid $light_gray;
+			border-top: 1px solid $gray;
+			border-left: 1px solid $gray;
 			background-color: $orange;
 			li{
 				width: 100%;
@@ -114,8 +115,8 @@ $global-radius:5px;
 				line-height: 32px;
 				height: 32px;
 				cursor: pointer;
-				border-bottom: 1px solid $light_gray;
-				border-right: 1px solid $light_gray;
+				border-bottom: 1px solid $gray;
+				border-right: 1px solid $gray;
 			}
 			a{
 				color: white;
@@ -125,7 +126,27 @@ $global-radius:5px;
 			}
 		}
 	}
-
+  section.event .orbit-content li div span{
+    width:50%;
+    h2 {
+      font-size: 16px;
+      line-height: 18px;
+      padding: 0 0 5px;
+    }
+    p {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+  section.menu .item-container{
+    .item-thumbnail {
+      width: 180px;
+      height: 180px;
+    }
+    .item-detail {
+      width: 45%;
+    }
+  }
 }
 @media all and (max-width: 568px) and (min-width: 320px){
 	.question{
@@ -150,6 +171,7 @@ $global-radius:5px;
 		position: absolute;
 		top: 0px;
 		.toggle{
+      color: white;
 			width: 40px;
 			height: 24px;
 			position: absolute;
@@ -165,7 +187,7 @@ $global-radius:5px;
 		}
 		ul.mobile_topmenu{
 			position: relative;
-			top: 80px;
+			top: 100px;
 			margin: 0; padding: 0;
 			width: 100%;
 			height: 160px;
@@ -195,12 +217,27 @@ $global-radius:5px;
 			}
 		}
 	}
+  section.event .orbit-content li div span{
+    width: 60%;
+    h2 {
+      font-size: 14px;
+      line-height:16px;
+      padding: 0 0 5px;
+    }
+    p{
+      font-size: 11px;
+      line-height: 15px;
+    }
+  }
 
 }
 @media all and (max-width: 320px) and (min-width: 0px){
 	body, html{
 		font-size: 11px;
 	}
+  h1{
+    font-size: 21px;
+  }
 	.question{
 		padding: 20px 20px 30px 20px;
 	}
@@ -211,9 +248,6 @@ $global-radius:5px;
 	ul.aboutNav{
 		display: none;
 	}
-	.btn_down{
-		display: none;
-	}
 
 	.mobile_topmenu_wrapper{
 		display: block;
@@ -222,6 +256,7 @@ $global-radius:5px;
 		position: absolute;
 		top: 0px;
 		.toggle{
+      color: white;
 			width: 40px;
 			height: 24px;
 			position: absolute;
