@@ -90,6 +90,7 @@ $global-radius:5px;
 			background-position: top left;
 			background-repeat: no-repeat;
 			cursor: pointer;
+      color: white;
 		}
 		.toggle.active{
 			background-position: bottom left;
@@ -272,7 +273,7 @@ $global-radius:5px;
 		}
 		ul.mobile_topmenu{
 			position: relative;
-			top: 80px;
+			top: 100px;
 			margin: 0; padding: 0;
 			width: 100%;
 			height: 160px;
@@ -302,5 +303,34 @@ $global-radius:5px;
 			}
 		}
 	}
+  .header .sub-bar ul.sub-left {
+    margin-left: 20px;
+  }
+  section.menu {
+    .tier:last-child {
+      padding-bottom: 10px;
+    }
+    .item-container {
+      height: 140px;
+      .item-thumbnail {
+        width: 110px;
+        height: 110px;
+      }
+      .item-detail {
+        width: 60%;
+        h4{
+          letter-spacing: 0;
+        }
+        p{
+          letter-spacing: 0;
+          line-height: 12px;
+        }
+        span{
+          width: 93%;
+          left: 10px;
+        }
+      }
+    }
+  }
 }
 

@@ -130,10 +130,13 @@ hr{
     text-transform: uppercase;
 	.row{
 		max-width: 100%;
+    position: fixed;
 	}
 	.sub-bar{
 		height:30px;
 		background-color: $black;
+    position: relative;
+    top:70px;
 		color: $gold;
 		ul{
 			font-size: 11px;
@@ -183,8 +186,9 @@ hr{
 	.logo{
 		cursor: pointer;
 		width: 250px;
-		position: absolute;
+		position: fixed;
 		top:10px;
+    z-index: 500;
 	}
 }
 
