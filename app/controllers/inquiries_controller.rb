@@ -6,21 +6,23 @@ class InquiriesController < ApplicationController
   end
 
   def create
-    inquiry = params[:inquiry]
-    @inquiry = Inquiry.new(params[:inquiry])
-    if @inquiry.save
-      if VisitorMailer.inquire(inquiry).deliver && VisitorMailer.confirm_inquiry(inquiry).deliver
-        flash[:notice] = "Thank you for contacting us.  We'll get back to you shortly".html_safe
-      else
-        flash[:error] = "Couldn't send your message, please double check your email address and try again".html_safe
-      end
+    result = SendInquiry.perform(inquiry_params)    
+    if result.success?
+      flash[:notice] = result.notice
     else
-      flash[:error] = "Email address is invalid"
+      flash[:error] = result.error
     end
-    @new_inquiry = Inquiry.new
+    @inquiry = result.sent_inquiry
 
-    respond_with(@inquiry) do |f|
-      f.html { redirect_to new_inquiry_path }
+    respond_with(@inquiry) do |format|
+      format.html { redirect_to new_inquiry_path }
     end
+  end
+
+  private 
+
+  def inquiry_params
+    # strong parameters to be added here when available
+    params[:inquiry]
   end
 end

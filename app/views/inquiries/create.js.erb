@@ -1,5 +1,5 @@
 <% if @inquiry.valid? %>
-  $(".js-new-inquiry").replaceWith("<%= escape_javascript(render partial: 'inquiries/form', locals: { inquiry: @new_inquiry }) %>");
+  $(".js-new-inquiry").replaceWith("<%= escape_javascript(render partial: 'inquiries/form') %>");
   $(".js-inquiry-response").text("<%= flash[:notice] %>");
 <% else %>
   $(".js-inquiry-response").text("<%= flash[:error] %>");
