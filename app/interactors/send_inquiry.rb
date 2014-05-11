@@ -1,6 +1,10 @@
 class SendInquiry
   include Interactor
 
+  def setup
+    context.fail! unless context[:email].present? && context[:name].present?
+  end
+
   def perform
     inquiry = Inquiry.new(context)
     if inquiry.save
