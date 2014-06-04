@@ -3,24 +3,24 @@ section class="event"
     div class="row"
       div class="large-12 small-12 columns"
         h1 WEDDING & EVENTS
-  div class="row "
+  div class="row"
     div class="large-12 columns"
       span class="event-title"
-        h2 01 / BIRTHDAY
+        h2 01 / WEDDING
       ul class="orbit-content" data-orbit=""
-        - @birthdays.each_with_index do |birthday, index|
-          = render partial: "events/event_detail", locals: {event: birthday, index: index}
-  div class="row "
-    div class="large-12 columns"
-      span class="event-title"
-        h2 02 / WEDDING
-      ul class="orbit-content" data-orbit=""
-        - @weddings.each_with_index do |wedding|
+        - @event_groups[:wedding].each_with_index do |wedding|
           = render partial: "events/event_detail", locals: {event: wedding}
-  div class="row "
+  div class="row"
     div class="large-12 columns"
       span class="event-title"
-        h2 03 / SPECIAL EVENTS
+        h2 02 / SPECIAL EVENTS
       ul class="orbit-content" data-orbit=""
-        - @special_events.each_with_index do |special_event|
+        - @event_groups[:special_events].each_with_index do |special_event|
           = render partial: "events/event_detail", locals: {event: special_event}
+  div class="row"
+    div class="large-12 columns"
+      span class="event-title"
+        h2 03 / CATERING
+      ul class="orbit-content" data-orbit=""
+        - @event_groups[:catering].each_with_index do |event|
+          = render partial: "events/event_detail", locals: {event: event}

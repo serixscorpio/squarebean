@@ -5,9 +5,9 @@ product_categories = [
   ProductCategory.create(name: 'Cake'),
   ProductCategory.create(name: 'Special Item') ]
 event_categories = [
-  EventCategory.create(name: 'Birthday'),
   EventCategory.create(name: 'Wedding'),
-  EventCategory.create(name: 'Special Events')
+  EventCategory.create(name: 'Special Events'),
+  EventCategory.create(name: 'Catering')
 ]
 
 case Rails.env
