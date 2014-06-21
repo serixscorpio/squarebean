@@ -4,13 +4,13 @@ FactoryGirl.define do
     name "Wedding"
   end
 
-  factory :birthday_category, class: EventCategory do
-    id 2 
-    name "Birthday"
+  factory :special_events_category, class: EventCategory do
+    id 2
+    name "Special Events"
   end
 
-  factory :special_events_category, class: EventCategory do
-    id 3 
-    name "Special Events"
+  factory :catering_category, class: EventCategory do
+    id 3
+    name "Catering"
   end
 end

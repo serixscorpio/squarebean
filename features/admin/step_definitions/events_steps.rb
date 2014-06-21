@@ -2,11 +2,11 @@ Given(/^I visit the list of events$/) do
   visit admin_events_path
 end
 
-When(/^I enter birthday event:$/) do |table|
+When(/^I enter (.*) event:$/) do |event_category_name, table|
   click_link('New event')
   @input = table.rows_hash
   fill_in('event_name', with: @input['event title'])
-  select('Birthday', from: "event_event_category_id")
+  select(event_category_name, from: "event_event_category_id")
   fill_in('event_highlight', with: @input['product highlighted'])
   fill_in('event_description', with: @input['description'])
   fill_in('event_more_details', with: @input['more details'])
@@ -14,13 +14,13 @@ When(/^I enter birthday event:$/) do |table|
   click_button('Save')
 end
 
-Then(/^The birthday events is stored$/) do
+Then(/^The (.*) event is stored$/) do |event_category_name|
   fail("Event #{@input['event title']} is not added") unless Event.where(name: @input['event title']).exists? 
 end
 
-Then(/^I see the details of the birthday event I just entered$/) do
+Then(/^I see the details of the (.*) event I just entered$/) do |event_category_name|
   expect(page).to have_field 'event_name', with: @input['event title']
-  expect(page).to have_select 'event_event_category_id', selected: 'Birthday'
+  expect(page).to have_select 'event_event_category_id', selected: event_category_name
   expect(page).to have_field 'event_highlight', with: @input['product highlighted']
   expect(page).to have_field 'event_description', with: @input['description']
   expect(page).to have_field 'event_more_details', with: @input['more details']
@@ -69,9 +69,9 @@ When(/^I visit the admin event page$/) do
 end
 
 Then(/^I see the list of events$/) do
-  expect(page).to have_selector("h2.#{@birthday_category.name.downcase.tr(' ', '_')}")
   expect(page).to have_selector("h2.#{@wedding_category.name.downcase.tr(' ', '_')}")
   expect(page).to have_selector("h2.#{@special_events_category.name.downcase.tr(' ', '_')}")
+  expect(page).to have_selector("h2.#{@catering_category.name.downcase.tr(' ', '_')}")
 end
 
 When(/^I change the display order of event "(.*?)" to "(.*?)"$/) do |event_name, desired_order|

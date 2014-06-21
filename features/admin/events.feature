@@ -1,21 +1,21 @@
 Feature: Admin Events
   Background:
-    Given There are Wedding, Birthday, and Special Events categories
+    Given There are Wedding, Special Events, and Catering categories
     And I am logged in as an admin
 
-  Scenario: I can add a new Brithday event
+  Scenario: I can add a new Catering event
     Given I visit the list of events
-    When I enter birthday event:
+    When I enter Catering event:
       | event title         | Emily's 66th day                  |
       | product highlighted | Tropical Baby Cake                |
       | description         | Pina coladas with toasted coconut |
       | more details        | link to facebook                  |
       | picture             | emily_66th_day.jpg                |
-    Then The birthday events is stored
-    And I see the details of the birthday event I just entered
+    Then The Catering event is stored
+    And I see the details of the Catering event I just entered
 
   Scenario: I can edit an existing event
-    Given the Birthday category has:
+    Given the Catering category has:
       | event title         | product highlighted       | description                            | more details     | picture               |
       | Emily's 66th day    | Tropical Baby Cake        | Pina coladas with toasted coconut      | link to facebook | emily_66th_day.jpg    | 
       | Vanessa's Birthday  | Triple Chocolate Mint Cake| Cravings for chocolate with mint       | link to facebook | vanessa_birthday.jpg  |
@@ -27,7 +27,7 @@ Feature: Admin Events
     And the event picture is updated to "emily_66th_day1.jpg"
 
   Scenario: I can delete an existing event
-    Given the Birthday category has:
+    Given the Catering category has:
       | event title         | product highlighted       | description                            | more details     | picture               |
       | Emily's 66th day    | Tropical Baby Cake        | Pina coladas with toasted coconut      | link to facebook | emily_66th_day.jpg    | 
       | Vanessa's Birthday  | Triple Chocolate Mint Cake| Cravings for chocolate with mint       | link to facebook | vanessa_birthday.jpg  |
@@ -42,7 +42,7 @@ Feature: Admin Events
     And I see links to admin Product page, Event page, and FAQ page
 
   Scenario: I can change the ordering of existing events
-    Given the Birthday category has:
+    Given the Catering category has:
       | event title       | product highlighted| description                      | more details     | picture               |display order|
       | Emily's 66th day  | Tropical Baby Cake | Pina coladas with toasted coconut| link to facebook | emily_66th_day.jpg    |1            |
       | Vanessa's Birthday| Chocolate Mint Cake| Cravings for chocolate with mint | link to facebook | vanessa_birthday.jpg  |2            |
@@ -51,12 +51,12 @@ Feature: Admin Events
     Then the display order of event "Emily's 66th day" becomes "3"
 
   Scenario: When I add a new event without specifying the display order, it defaults to display last
-    Given the Birthday category has:
+    Given the Catering category has:
       | event title       | product highlighted| description                      | more details     | picture               |display order|
       | Emily's 66th day  | Tropical Baby Cake | Pina coladas with toasted coconut| link to facebook | emily_66th_day.jpg    |1            |
       | Vanessa's Birthday| Chocolate Mint Cake| Cravings for chocolate with mint | link to facebook | vanessa_birthday.jpg  |2            |
     And I visit the list of events
-    When I enter birthday event:
+    When I enter Catering event:
       | event title         | Aaron's Birthday                  |
       | product highlighted | Strawberry Cake                   |
       | description         | Simple Strawberry Cake            |
