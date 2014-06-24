@@ -69,3 +69,14 @@ module Squarebean
     config.assets.initialize_on_precompile = false
   end
 end
+
+# based on http://stackoverflow.com/questions/9235292/how-can-i-run-some-initializers-when-doing-a-rails-assetsprecompile
+module AssetsInitializers
+  class Railtie < Rails::Railtie
+    initializer "assets_initializers.initialize_rails",
+                :group => :assets do |app|
+      require "#{Rails.root}/config/initializers/load_config.rb"
+    end
+  end
+end
+
