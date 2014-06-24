@@ -17,6 +17,7 @@
 //= require jquery.easing.1.3
 //= require jquery.transit.min
 //= require main
+//= require segmentio
 $(document).foundation();
 $(document).ajaxStart(function() {
   $(".js-inquiry-response").text("Sending your message, please wait");
