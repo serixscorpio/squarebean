@@ -133,7 +133,7 @@ GEM
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
     pg (0.17.0)
-    polyglot (0.3.3)
+    polyglot (0.3.5)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -194,7 +194,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.38)
+    tzinfo (0.3.45)
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -228,9 +228,12 @@ DEPENDENCIES
   nested_form
   newrelic_rpm
   pg
-  rails (= 3.2.13)
+  rails (~> 3.2)
   rspec-rails
   sass-rails (~> 3.2.3)
   slim
   uglifier (>= 1.0.3)
   webmock
+
+BUNDLED WITH
+   1.10.6
