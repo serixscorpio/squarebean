@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
-gem 'rails', '~> 3.2'
+gem 'rails', '~> 3.2.22'
 
 gem 'pg'
 
@@ -10,6 +10,7 @@ group :test do
   gem 'webmock'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara-webkit'
+  gem 'test-unit'
 end
 
 # Gems used only for assets and not required
